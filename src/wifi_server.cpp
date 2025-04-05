@@ -150,6 +150,7 @@ void wificonnect()
   {
     lv_task_handler();
     wificonfig();
+    Serial.println("wifi connecting...");
   }
   if(WiFi.status() == WL_CONNECTED)
   {

@@ -1,0 +1,7 @@
+lvgl/lvgl@8.3.11
+arduino-libraries/NTPClient@^3.2.1
+tzapu/WiFiManager@^2.0.17
+nodaoli/ArduinoUZlib@^1.0.2
+bblanchon/ArduinoJson@^7.3.1
+adafruit/Adafruit INA219@^1.2.3
+bodmer/TFT_eSPI@^2.5.43

@@ -1,0 +1,16 @@
+{
+  "codename": "ASCII20MONO",
+  "ttf_path": "/assets/SarasaMonoSC-Bold.ttf",
+  "bin_path": "/assets/ui_font_ASCII20MONO.bin",
+  "c_path": "/assets/ui_font_ASCII20MONO.c",
+  "cfg_path": "/assets/ui_font_ASCII20MONO.fcfg",
+  "size": 20,
+  "bpp": 8,
+  "letters": 0,
+  "ranges": [
+    "0x20-0x7f"
+  ],
+  "symbols": "℃系统设置无线配界面接口电压校准散热开关返回主页请连至点启动网清除已更新天气时间未",
+  "customparams": "--no-compress --no-prefilter",
+  "uploaded": false
+}

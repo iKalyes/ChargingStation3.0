@@ -18,17 +18,11 @@ void Webconfig()
   WiFiManagerParameter  custom_synctime("SyncTime","NTP And Weather Update Time(Hour)","1",2);
   WiFiManagerParameter  p_lineBreak_notext("<p></p>");
 
-  wm.addParameter(&p_lineBreak_notext);
   wm.addParameter(&custom_citycode);
-  wm.addParameter(&p_lineBreak_notext);
   wm.addParameter(&custom_qweatherapihost);
-  wm.addParameter(&p_lineBreak_notext);
   wm.addParameter(&custom_qweatherkey);
-  wm.addParameter(&p_lineBreak_notext);
   wm.addParameter(&custom_ntpserver);
-  wm.addParameter(&p_lineBreak_notext);
   wm.addParameter(&custom_timezone);
-  wm.addParameter(&p_lineBreak_notext);
   wm.addParameter(&custom_synctime);
   wm.setSaveParamsCallback(saveParamCallback);
 

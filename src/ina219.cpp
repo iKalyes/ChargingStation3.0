@@ -4,9 +4,10 @@ Adafruit_INA219 ina219;
 
 void ina219_init()
 {
-  Wire.begin(SDA_PIN, SCL_PIN);
-  ina219.begin();
-  ina219_timer = lv_timer_create(ina219_task, 100, NULL);
+  Wire1.begin(SDA_PIN, SCL_PIN);
+  Wire1.setClock(400000);
+  ina219.begin(&Wire1);
+  //ina219_timer = lv_timer_create(ina219_task, 100, NULL);
 }
 
 void ina219_task(lv_timer_t *timer)

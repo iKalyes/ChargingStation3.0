@@ -22,7 +22,7 @@ static void keypad_read(lv_indev_drv_t* drv, lv_indev_data_t* data)
     bool is_slider = focused_obj ? lv_obj_check_type(focused_obj, &lv_slider_class) : false;
     
     // 检测各按键状态
-    if(!digitalRead(SWITCH_LEFT) {  
+    if(!digitalRead(SWITCH_LEFT)) {  
         data->state = LV_INDEV_STATE_PRESSED;
         // 只有当slider被选中时才使用LEFT/RIGHT调整值
         if(is_slider && slider_selected) {

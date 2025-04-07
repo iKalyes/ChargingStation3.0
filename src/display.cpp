@@ -63,45 +63,43 @@ void style_reset()
 {
     lv_obj_set_style_outline_color(ui_USBCSwitch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_USBASwitch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_Setting, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_Weather, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_Setting, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_Weather, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
     
     lv_obj_set_style_outline_color(ui_WiFiWebPage, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_ADCAdjust, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_AdvancedSetting, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_FanSwitch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_SliderSleepTime, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_SliderSleepTime, lv_color_hex(0xffff00), LV_STATE_EDITED);
     lv_obj_set_style_outline_color(ui_SliderBrightness, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_SliderBrightness, lv_color_hex(0xffff00), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_Back, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_Back, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
 
-    lv_obj_set_style_outline_color(ui_USBAAdjust, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_USBAAdjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_USBC3Adjust, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_USBC3Adjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_USBC2Adjust, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_USBC2Adjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_USBC1Adjust, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_USBC1Adjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_ADCBack, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);;
+    lv_obj_set_style_outline_color(ui_USBA1Adjust, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBA1Adjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_USBA2Adjust, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBA2Adjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_ThermometerAdjust, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_ThermometerAdjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_AdvancedSettingBack, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);;
 
     lv_obj_set_style_outline_color(ui_WIFIStart, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_WIFIReset, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_WIFIBack, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_WIFIBack, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
 
-    lv_obj_set_style_outline_color(ui_WeatherBack, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_WeatherSetting, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_WeatherBack, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_WeatherSetting, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
 
     static lv_style_t style_pr;
     lv_style_init(&style_pr);
     lv_style_set_transform_width(&style_pr, 0);
     lv_style_set_transform_height(&style_pr, 0);
-    lv_obj_add_style(ui_WiFiWebPage, &style_pr, LV_STATE_PRESSED);
     lv_obj_add_style(ui_Weather, &style_pr, LV_STATE_PRESSED);
     lv_obj_add_style(ui_Setting, &style_pr, LV_STATE_PRESSED);
-    lv_obj_add_style(ui_ADCAdjust, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_WiFiWebPage, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_AdvancedSetting, &style_pr, LV_STATE_PRESSED);
     lv_obj_add_style(ui_Back, &style_pr, LV_STATE_PRESSED);
-    lv_obj_add_style(ui_ADCBack, &style_pr, LV_STATE_PRESSED);
+    lv_obj_add_style(ui_AdvancedSettingBack, &style_pr, LV_STATE_PRESSED);
     lv_obj_add_style(ui_WIFIBack, &style_pr, LV_STATE_PRESSED);
     lv_obj_add_style(ui_WIFIStart, &style_pr, LV_STATE_PRESSED);
     lv_obj_add_style(ui_WIFIReset, &style_pr, LV_STATE_PRESSED);
@@ -148,7 +146,7 @@ void setting_reset()
         lv_obj_clear_state(ui_FanSwitch, LV_STATE_CHECKED);
         FAN_OFF();
     }
-
-    lv_slider_set_value(ui_USBAAdjust, (uint16_t)(voltage0_adc * 100), LV_ANIM_OFF);
-    lv_slider_set_value(ui_USBC3Adjust, (uint16_t)(voltage1_adc * 100), LV_ANIM_OFF);
+    lv_slider_set_value(ui_USBA1Adjust, (uint16_t)(voltage0_adc * 100), LV_ANIM_OFF);
+    lv_slider_set_value(ui_USBA2Adjust, (uint16_t)(voltage1_adc * 100), LV_ANIM_OFF);
+    lv_slider_set_value(ui_ThermometerAdjust, (uint16_t)(temperature_adc * 100), LV_ANIM_OFF);
 }

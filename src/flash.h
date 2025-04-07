@@ -16,7 +16,7 @@ void save_setting();
 void load_setting();
 void save_USBA_setting();
 void save_USBC_setting();
-void save_adc_setting();
+void save_advanced_setting();
 
 void save_web_config();
 void load_web_config();

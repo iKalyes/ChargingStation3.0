@@ -115,7 +115,7 @@ void ui_event_USBA1Adjust(lv_event_t * e) {
 
     if(event_code == LV_EVENT_VALUE_CHANGED) {
         USBA1Adjust(e);
-        voltage0_adc = (float)(lv_slider_get_value(ui_USBAAdjust)) * 0.01f;
+        voltage0_adc = (float)(lv_slider_get_value(ui_USBA1Adjust)) * 0.01f;
     }
 }
 
@@ -124,6 +124,7 @@ void ui_event_USBA2Adjust( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED) {
       USBA2Adjust( e );
+      voltage1_adc = (float)(lv_slider_get_value(ui_USBA2Adjust)) * 0.01f;
 }
 }
 
@@ -132,6 +133,7 @@ void ui_event_ThermometerAdjust( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED) {
       TempAdjust( e );
+      temperature_adc = (float)(lv_slider_get_value(ui_ThermometerAdjust)) * 0.01f;
 }
 }
 
@@ -152,7 +154,7 @@ void ui_event_AdvancedSettingBack( lv_event_t * e) {
 if ( event_code == LV_EVENT_PRESSED) {
       _ui_screen_change( &ui_SettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_SettingScreen_screen_init);
       lvgl_group_to_setting();
-      save_adc_setting();
+      save_advanced_setting();
 }
 }
 

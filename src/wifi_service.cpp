@@ -15,7 +15,7 @@ void Webconfig()
   WiFiManagerParameter  custom_qweatherkey("qWeatherKey","QWeather User Key","",32);
   WiFiManagerParameter  custom_ntpserver("NTPServer","NTP Server","pool.ntp.org",32);
   WiFiManagerParameter  custom_timezone("TimeZone","Time Zone","8",2);
-  WiFiManagerParameter  custom_synctime("SyncTime","NTP And Weather Update Time(Hour)","1",2);
+  WiFiManagerParameter  custom_synctime("SyncTime","NTP And Weather Update Time(Hour)","1",16);
   WiFiManagerParameter  p_lineBreak_notext("<p></p>");
 
   wm.addParameter(&custom_citycode);
@@ -52,7 +52,7 @@ void saveParamCallback(){
     qWeather_Key = getParam("qWeatherKey");
     TimeZone = getParam("TimeZone").toInt();
     NTPServer = getParam("NTPServer");
-    SyncTime = getParam("SyncTime").toInt();
+    SyncTime = getParam("SyncTime").toFloat();
 
     save_web_config();
     time_server_setting(NTPServer.c_str(), TimeZone, SyncTime);
@@ -103,7 +103,7 @@ void wificonfig()
   }
   else
   {
-    deep_sleep_unconnect();
+    sleep_unconnect();
   }
 }
 
@@ -137,7 +137,7 @@ void wifireset()
 
 bool time_get_strap_unconnect = false;
 int sleep_millis = 0;
-void deep_sleep_unconnect()
+void sleep_unconnect()
 {
   if(time_get_strap_unconnect == false)
   {
@@ -152,9 +152,12 @@ void deep_sleep_unconnect()
   {
     if(millis() - sleep_millis >= sleep_time * 60000)
     {
+      backlight_set(0);
       esp_wifi_stop();
-      esp_sleep_enable_ext0_wakeup(SWITCH_ENTER, 0);
-      esp_deep_sleep_start();
+      gpio_wakeup_enable(SWITCH_ENTER_NUM, GPIO_INTR_LOW_LEVEL);
+      esp_sleep_enable_gpio_wakeup();
+      esp_light_sleep_start();
+      esp_restart();
     }
   }
 }

@@ -11,6 +11,7 @@
 
 #define SWITCH_LEFT 39
 #define SWITCH_ENTER 40
+#define SWITCH_ENTER_NUM GPIO_NUM_40
 #define SWITCH_RIGHT 41
 
 void gpio_init();

@@ -9,6 +9,7 @@
 
 #include <variables.h>
 #include <main_service.h>
+#include <display.h>
 #include <lvgl_group.h>
 #include <gpio.h>
 #include <flash.h>
@@ -22,6 +23,6 @@ void wificonfig();
 void wificonnect();
 void wifireset();
 
-void deep_sleep_unconnect();
+void sleep_unconnect();
 
 #endif

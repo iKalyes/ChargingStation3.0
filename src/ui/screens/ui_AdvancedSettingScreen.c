@@ -166,8 +166,8 @@ ui_object_set_themeable_style_property(ui_VoltageUSBA2ADC, LV_PART_MAIN| LV_STAT
 lv_obj_set_style_text_font(ui_VoltageUSBA2ADC, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_ThermometerAdjust = lv_slider_create(ui_AdvancedSettingDock);
-lv_slider_set_range(ui_ThermometerAdjust, 850,1250);
-lv_slider_set_value( ui_ThermometerAdjust, 1085, LV_ANIM_OFF);
+lv_slider_set_range(ui_ThermometerAdjust, 0,500);
+lv_slider_set_value( ui_ThermometerAdjust, 100, LV_ANIM_OFF);
 if (lv_slider_get_mode(ui_ThermometerAdjust)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_ThermometerAdjust, 0, LV_ANIM_OFF);
 lv_obj_set_width( ui_ThermometerAdjust, 228);
 lv_obj_set_height( ui_ThermometerAdjust, 28);

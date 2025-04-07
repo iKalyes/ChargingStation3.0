@@ -7,7 +7,7 @@ Weather weather;
 lv_timer_t* NTP_timer = NULL;
 lv_timer_t* NTP_Update_timer = NULL;
 
-void time_server_init(const char* poolServerName, long timeOffset, unsigned long updateInterval)
+void time_server_init(const char* poolServerName, long timeOffset, float updateInterval)
 {
     timeClient.setPoolServerName(poolServerName);    
     timeClient.setTimeOffset(timeOffset * 3600);
@@ -16,7 +16,7 @@ void time_server_init(const char* poolServerName, long timeOffset, unsigned long
     NTP_timer = lv_timer_create(time_server_refresh, 500, NULL);
 }
 
-void time_server_setting(const char* poolServerName, long timeOffset, unsigned long updateInterval)
+void time_server_setting(const char* poolServerName, long timeOffset, float updateInterval)
 {
     timeClient.setPoolServerName(poolServerName);
     timeClient.setTimeOffset(timeOffset * 3600);
@@ -32,10 +32,6 @@ void time_server_refresh(lv_timer_t *timer)
         hour = timeClient.getHours();
         minute = timeClient.getMinutes();
         second = timeClient.getSeconds();
-
-        lv_label_set_text_fmt(ui_Hour, "%02d", hour);
-        lv_label_set_text_fmt(ui_Minute, "%02d", minute);
-        lv_label_set_text_fmt(ui_Second, "%02d", second);
         
         lv_label_set_text_fmt(ui_WHour, "%02d", hour);
         lv_label_set_text_fmt(ui_WMinute, "%02d", minute);
@@ -279,7 +275,7 @@ const lv_img_dsc_t* get_weather_icon(int code)
 
 bool time_get_strap = false;
 int sleep_EpochTime = 0;
-void deep_sleep()
+void sleep()
 {
     if(time_get_strap == false)
     {
@@ -296,9 +292,12 @@ void deep_sleep()
         {
             if((timeClient.getEpochTime() / 60) - sleep_EpochTime >= sleep_time)
             {
+                backlight_set(0);
                 esp_wifi_stop();
-                esp_sleep_enable_ext0_wakeup(SWITCH_ENTER, 0);
-                esp_deep_sleep_start();
+                gpio_wakeup_enable(SWITCH_ENTER_NUM, GPIO_INTR_LOW_LEVEL);
+                esp_sleep_enable_gpio_wakeup();
+                esp_light_sleep_start();
+                esp_restart();
             }
         }
     }

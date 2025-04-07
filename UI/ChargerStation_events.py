@@ -70,3 +70,7 @@ def TempAdjust(event_struct):
 def USBA1Adjust(event_struct):
     return
 
+
+def USBA2Adjust(event_struct):
+    return
+

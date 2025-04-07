@@ -5,7 +5,9 @@
 
 #include <display.h>
 #include <ina219.h>
+#include <ina3221_service.h>
 #include <key.h>
+#include <adc.h>
 #include <lvgl_group.h>
 #include <lvgl_event.h>
 #include <variables.h>

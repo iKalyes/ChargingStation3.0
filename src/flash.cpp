@@ -36,6 +36,7 @@ void load_setting()
     USBA_Switch = flash.getBool("USBA_Switch", false);
     voltage0_adc = flash.getFloat("voltage0_adc", 10.85f);
     voltage1_adc = flash.getFloat("voltage1_adc", 10.85f);
+    temperature_adc = flash.getFloat("temperature_adc", 1.0f);
     flash.end();
 }
 
@@ -58,6 +59,7 @@ void save_advanced_setting()
     flash.begin("setting");
     flash.putFloat("voltage0_adc", voltage0_adc);
     flash.putFloat("voltage1_adc", voltage1_adc);
+    flash.putFloat("temperature_adc", temperature_adc);
     flash.end();
 }
 
@@ -69,7 +71,7 @@ void save_web_config()
     flash.putString("qWeather_Key", qWeather_Key);
     flash.putUInt("TimeZone", TimeZone);
     flash.putString("NTPServer", NTPServer);
-    flash.putUInt("SyncTime", SyncTime);
+    flash.putFloat("SyncTime", SyncTime);
     flash.end();
 }
 
@@ -89,7 +91,7 @@ void load_web_config()
     qWeather_Key = flash.getString("qWeather_Key", "");
     TimeZone = flash.getUInt("TimeZone", 8);
     NTPServer = flash.getString("NTPServer", "pool.ntp.org");
-    SyncTime = flash.getUInt("SyncTime", 1);
+    SyncTime = flash.getFloat("SyncTime", 1);
     flash.end();
 }
 

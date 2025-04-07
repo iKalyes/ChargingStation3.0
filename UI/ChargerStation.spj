@@ -9577,7 +9577,7 @@
                   {
                     "nid": 10,
                     "strtype": "OBJECT/Name",
-                    "strval": "ADCAdjust",
+                    "strval": "AdvancedSetting",
                     "InheritedType": 10
                   },
                   {
@@ -9728,7 +9728,7 @@
                       {
                         "nid": 1000337,
                         "strtype": "_event/name",
-                        "strval": "ADCAdjustScreen",
+                        "strval": "AdvancedSetting",
                         "InheritedType": 10
                       },
                       {
@@ -12616,7 +12616,7 @@
                   {
                     "nid": 10,
                     "strtype": "OBJECT/Name",
-                    "strval": "TextADCHeader",
+                    "strval": "TextAdvancedSetting",
                     "InheritedType": 10
                   },
                   {
@@ -12785,7 +12785,7 @@
               {
                 "nid": 10,
                 "strtype": "OBJECT/Name",
-                "strval": "ADCHeader",
+                "strval": "AdvancedSettingHeader",
                 "InheritedType": 10
               },
               {
@@ -13459,7 +13459,7 @@
                   {
                     "nid": 10,
                     "strtype": "OBJECT/Name",
-                    "strval": "USBAAdjust",
+                    "strval": "USBA1Adjust",
                     "InheritedType": 10
                   },
                   {
@@ -13709,7 +13709,7 @@
                       {
                         "nid": 1000349,
                         "strtype": "_event/name",
-                        "strval": "USBA",
+                        "strval": "USBA1",
                         "InheritedType": 10
                       },
                       {
@@ -13750,7 +13750,7 @@
                           {
                             "nid": 1000356,
                             "strtype": "CALL FUNCTION/Function_name",
-                            "strval": "USBAAdjust",
+                            "strval": "USBA1Adjust",
                             "InheritedType": 10
                           },
                           {
@@ -14286,7 +14286,7 @@
                   {
                     "nid": 10,
                     "strtype": "OBJECT/Name",
-                    "strval": "USBAAdjust2",
+                    "strval": "USBA2Adjust",
                     "InheritedType": 10
                   },
                   {
@@ -14536,7 +14536,7 @@
                       {
                         "nid": 1000349,
                         "strtype": "_event/name",
-                        "strval": "USBA",
+                        "strval": "USBA2",
                         "InheritedType": 10
                       },
                       {
@@ -14577,7 +14577,7 @@
                           {
                             "nid": 1000356,
                             "strtype": "CALL FUNCTION/Function_name",
-                            "strval": "USBAAdjust",
+                            "strval": "USBA2Adjust",
                             "InheritedType": 10
                           },
                           {
@@ -15363,7 +15363,7 @@
                       {
                         "nid": 1000349,
                         "strtype": "_event/name",
-                        "strval": "USBA",
+                        "strval": "Thermometer",
                         "InheritedType": 10
                       },
                       {
@@ -15404,7 +15404,7 @@
                           {
                             "nid": 1000356,
                             "strtype": "CALL FUNCTION/Function_name",
-                            "strval": "USBAAdjust",
+                            "strval": "TempAdjust",
                             "InheritedType": 10
                           },
                           {
@@ -15777,7 +15777,7 @@
                           {
                             "nid": 1000257,
                             "strtype": "_event/name",
-                            "strval": "FanSwitchON",
+                            "strval": "TempControlON",
                             "InheritedType": 10
                           },
                           {
@@ -15818,7 +15818,7 @@
                               {
                                 "nid": 1000264,
                                 "strtype": "CALL FUNCTION/Function_name",
-                                "strval": "FanSwitchON",
+                                "strval": "TempControlON",
                                 "InheritedType": 10
                               },
                               {
@@ -15842,7 +15842,7 @@
                           {
                             "nid": 1000267,
                             "strtype": "_event/name",
-                            "strval": "FanSwitchOFF",
+                            "strval": "TempControlOFF",
                             "InheritedType": 10
                           },
                           {
@@ -15883,7 +15883,7 @@
                               {
                                 "nid": 1000274,
                                 "strtype": "CALL FUNCTION/Function_name",
-                                "strval": "FanSwitchOFF",
+                                "strval": "TempControlOFF",
                                 "InheritedType": 10
                               },
                               {
@@ -16067,7 +16067,7 @@
               {
                 "nid": 10,
                 "strtype": "OBJECT/Name",
-                "strval": "ADCAdjustDock",
+                "strval": "AdvancedSettingDock",
                 "InheritedType": 10
               },
               {
@@ -16402,7 +16402,7 @@
               {
                 "nid": 10,
                 "strtype": "OBJECT/Name",
-                "strval": "ADCBack",
+                "strval": "AdvancedSettingBack",
                 "InheritedType": 10
               },
               {
@@ -16547,7 +16547,7 @@
                   {
                     "nid": 1000245,
                     "strtype": "_event/name",
-                    "strval": "SettingScreen",
+                    "strval": "AdvancedSettingBack",
                     "InheritedType": 10
                   },
                   {
@@ -16615,7 +16615,8 @@
                 "InheritedType": 4
               }
             ],
-            "saved_objtypeKey": "BUTTON"
+            "saved_objtypeKey": "BUTTON",
+            "tree_closed": true
           }
         ],
         "isPage": true,
@@ -16627,7 +16628,7 @@
           {
             "nid": 10,
             "strtype": "OBJECT/Name",
-            "strval": "ADCAdjustScreen",
+            "strval": "AdvancedSettingScreen",
             "InheritedType": 10
           },
           {
@@ -24454,7 +24455,7 @@
     "uiExportFolderPath": "/Users/quin/Documents/ChargingStation3.0/src/ui",
     "projectExportFolderPath": "/Users/quin/Documents/ChargingStation3.0",
     "custom_variable_prefix": "uic",
-    "backup_cnt": 71,
+    "backup_cnt": 85,
     "autosave_cnt": 0,
     "group_color_cnt": 0,
     "lvgl_version": "8.3.11",

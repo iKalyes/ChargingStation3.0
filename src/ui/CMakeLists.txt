@@ -1,6 +1,6 @@
 SET(SOURCES screens/ui_MainScreen.c
     screens/ui_SettingScreen.c
-    screens/ui_ADCAdjustScreen.c
+    screens/ui_AdvancedSettingScreen.c
     screens/ui_WiFiScreen.c
     screens/ui_WeatherScreen.c
     ui_theme_manager.c
@@ -11,8 +11,6 @@ SET(SOURCES screens/ui_MainScreen.c
     ui_events.c
     images/ui_img_426970754.c
     images/ui_img_2092987087.c
-    images/ui_img_1671917170.c
-    images/ui_img_1222334931.c
     images/ui_img_1338783594.c
     images/ui_img_175199537.c
     images/ui_img_593743026.c
@@ -84,10 +82,13 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_515_png.c
     images/ui_img_900_png.c
     images/ui_img_901_png.c
+    images/ui_img_1222334931.c
+    images/ui_img_1671917170.c
     fonts/ui_font_ASCII20MONO.c
     fonts/ui_font_ASCII32MONO.c
     fonts/ui_font_ASCII40MONO.c
     fonts/ui_font_ASCII56MONO.c
-    fonts/ui_font_CHN.c)
+    fonts/ui_font_CHN.c
+    fonts/ui_font_CHN18.c)
 
 add_library(ui ${SOURCES})

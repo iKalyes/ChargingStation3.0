@@ -7,7 +7,7 @@
 
 void lvgl_group_init();
 void lvgl_group_to_setting();
-void lvgl_group_to_adc();
+void lvgl_group_to_advancedsetting();
 void lvgl_group_to_wifi();
 void lvgl_group_to_main();
 void lvgl_group_to_weather();

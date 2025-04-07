@@ -219,76 +219,82 @@ ui_object_set_themeable_style_property(ui_WSecond, LV_PART_MAIN| LV_STATE_DEFAUL
 ui_object_set_themeable_style_property(ui_WSecond, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_Text_Switch);
 lv_obj_set_style_text_font(ui_WSecond, &ui_font_ASCII56MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-ui_WPowerDock = lv_obj_create(ui_WeatherScreen);
-lv_obj_remove_style_all(ui_WPowerDock);
-lv_obj_set_width( ui_WPowerDock, 236);
-lv_obj_set_height( ui_WPowerDock, 44);
-lv_obj_set_x( ui_WPowerDock, 0 );
-lv_obj_set_y( ui_WPowerDock, 68 );
-lv_obj_set_align( ui_WPowerDock, LV_ALIGN_CENTER );
-lv_obj_clear_flag( ui_WPowerDock, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE );    /// Flags
-lv_obj_set_style_radius(ui_WPowerDock, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
-ui_object_set_themeable_style_property(ui_WPowerDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_Container);
-ui_object_set_themeable_style_property(ui_WPowerDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_Container);
+ui_PowerDock = lv_obj_create(ui_WeatherScreen);
+lv_obj_remove_style_all(ui_PowerDock);
+lv_obj_set_width( ui_PowerDock, 236);
+lv_obj_set_height( ui_PowerDock, 44);
+lv_obj_set_x( ui_PowerDock, 0 );
+lv_obj_set_y( ui_PowerDock, 68 );
+lv_obj_set_align( ui_PowerDock, LV_ALIGN_CENTER );
+lv_obj_clear_flag( ui_PowerDock, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+lv_obj_set_style_radius(ui_PowerDock, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_object_set_themeable_style_property(ui_PowerDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_Container);
+ui_object_set_themeable_style_property(ui_PowerDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_Container);
 
-ui_TextWVoltage = lv_label_create(ui_WPowerDock);
+ui_TextWVoltage = lv_label_create(ui_PowerDock);
 lv_obj_set_width( ui_TextWVoltage, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TextWVoltage, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextWVoltage, -80 );
-lv_obj_set_y( ui_TextWVoltage, 1 );
-lv_obj_set_align( ui_TextWVoltage, LV_ALIGN_CENTER );
-lv_label_set_text(ui_TextWVoltage,"VOLTAGE\n");
+lv_obj_set_y( ui_TextWVoltage, 2 );
+lv_obj_set_align( ui_TextWVoltage, LV_ALIGN_TOP_MID );
+lv_label_set_text(ui_TextWVoltage,"主电压");
 lv_obj_set_style_text_color(ui_TextWVoltage, lv_color_hex(0xFF7D00), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_text_opa(ui_TextWVoltage, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_text_font(ui_TextWVoltage, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_text_font(ui_TextWVoltage, &ui_font_CHN18, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-ui_WVoltage = lv_label_create(ui_TextWVoltage);
-lv_obj_set_width( ui_WVoltage, LV_SIZE_CONTENT);  /// 1
-lv_obj_set_height( ui_WVoltage, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_WVoltage, -1 );
-lv_obj_set_y( ui_WVoltage, 11 );
-lv_obj_set_align( ui_WVoltage, LV_ALIGN_CENTER );
-lv_label_set_text(ui_WVoltage,"00.00V");
-lv_obj_set_style_text_font(ui_WVoltage, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
-
-ui_TextWCurrent = lv_label_create(ui_WPowerDock);
+ui_TextWCurrent = lv_label_create(ui_PowerDock);
 lv_obj_set_width( ui_TextWCurrent, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TextWCurrent, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextWCurrent, 0 );
-lv_obj_set_y( ui_TextWCurrent, 1 );
-lv_obj_set_align( ui_TextWCurrent, LV_ALIGN_CENTER );
-lv_label_set_text(ui_TextWCurrent,"CURRENT\n");
+lv_obj_set_y( ui_TextWCurrent, 2 );
+lv_obj_set_align( ui_TextWCurrent, LV_ALIGN_TOP_MID );
+lv_label_set_text(ui_TextWCurrent,"主电流");
 lv_obj_set_style_text_color(ui_TextWCurrent, lv_color_hex(0x00FF00), LV_PART_MAIN | LV_STATE_DEFAULT );
 lv_obj_set_style_text_opa(ui_TextWCurrent, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_text_font(ui_TextWCurrent, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_text_font(ui_TextWCurrent, &ui_font_CHN18, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-ui_WCurrent = lv_label_create(ui_TextWCurrent);
+ui_TextPower1 = lv_label_create(ui_PowerDock);
+lv_obj_set_width( ui_TextPower1, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_TextPower1, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_TextPower1, 80 );
+lv_obj_set_y( ui_TextPower1, 2 );
+lv_obj_set_align( ui_TextPower1, LV_ALIGN_TOP_MID );
+lv_label_set_text(ui_TextPower1,"主功率");
+lv_obj_set_style_text_color(ui_TextPower1, lv_color_hex(0x00FFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_text_opa(ui_TextPower1, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_text_font(ui_TextPower1, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
+
+ui_WVoltage = lv_label_create(ui_PowerDock);
+lv_obj_set_width( ui_WVoltage, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_WVoltage, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_WVoltage, -80 );
+lv_obj_set_y( ui_WVoltage, 10 );
+lv_obj_set_align( ui_WVoltage, LV_ALIGN_CENTER );
+lv_label_set_text(ui_WVoltage,"00.00V");
+lv_obj_set_style_text_color(ui_WVoltage, lv_color_hex(0xFF7D00), LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_text_opa(ui_WVoltage, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_text_font(ui_WVoltage, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
+
+ui_WCurrent = lv_label_create(ui_PowerDock);
 lv_obj_set_width( ui_WCurrent, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_WCurrent, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_WCurrent, -1 );
-lv_obj_set_y( ui_WCurrent, 11 );
+lv_obj_set_x( ui_WCurrent, 0 );
+lv_obj_set_y( ui_WCurrent, 10 );
 lv_obj_set_align( ui_WCurrent, LV_ALIGN_CENTER );
 lv_label_set_text(ui_WCurrent,"00.00A");
+lv_obj_set_style_text_color(ui_WCurrent, lv_color_hex(0x00FF00), LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_text_opa(ui_WCurrent, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_text_font(ui_WCurrent, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-ui_TextWPower = lv_label_create(ui_WPowerDock);
-lv_obj_set_width( ui_TextWPower, LV_SIZE_CONTENT);  /// 1
-lv_obj_set_height( ui_TextWPower, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_TextWPower, 80 );
-lv_obj_set_y( ui_TextWPower, 1 );
-lv_obj_set_align( ui_TextWPower, LV_ALIGN_CENTER );
-lv_label_set_text(ui_TextWPower," POWER \n");
-lv_obj_set_style_text_color(ui_TextWPower, lv_color_hex(0x00FFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
-lv_obj_set_style_text_opa(ui_TextWPower, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
-lv_obj_set_style_text_font(ui_TextWPower, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
-
-ui_WPower = lv_label_create(ui_TextWPower);
+ui_WPower = lv_label_create(ui_PowerDock);
 lv_obj_set_width( ui_WPower, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_WPower, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_x( ui_WPower, -1 );
-lv_obj_set_y( ui_WPower, 11 );
+lv_obj_set_x( ui_WPower, 80 );
+lv_obj_set_y( ui_WPower, 10 );
 lv_obj_set_align( ui_WPower, LV_ALIGN_CENTER );
 lv_label_set_text(ui_WPower,"000.0W");
+lv_obj_set_style_text_color(ui_WPower, lv_color_hex(0x00FFFF), LV_PART_MAIN | LV_STATE_DEFAULT );
+lv_obj_set_style_text_opa(ui_WPower, 255, LV_PART_MAIN| LV_STATE_DEFAULT);
 lv_obj_set_style_text_font(ui_WPower, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 lv_obj_add_event_cb(ui_WeatherBack, ui_event_WeatherBack, LV_EVENT_ALL, NULL);

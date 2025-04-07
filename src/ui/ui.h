@@ -37,42 +37,46 @@ void ui_event_USBCSwitch( lv_event_t * e);
 extern lv_obj_t *ui_USBCSwitch;
 void ui_event_USBASwitch( lv_event_t * e);
 extern lv_obj_t *ui_USBASwitch;
-void ui_event_Setting( lv_event_t * e);
-extern lv_obj_t *ui_Setting;
-extern lv_obj_t *ui_ImageSetting;
+extern lv_obj_t *ui_ImageWiFi;
+extern lv_obj_t *ui_SysTempDock;
+extern lv_obj_t *ui_TextSysTemp;
+extern lv_obj_t *ui_SysTemp;
+extern lv_obj_t *ui_USBA1;
+extern lv_obj_t *ui_ImageUSBA1;
+extern lv_obj_t *ui_VoltageUSBA1;
+extern lv_obj_t *ui_USBA2;
+extern lv_obj_t *ui_ImageUSBA2;
+extern lv_obj_t *ui_VoltageUSBA2;
+extern lv_obj_t *ui_USBC3;
+extern lv_obj_t *ui_ImageC3;
+extern lv_obj_t *ui_VoltageC3;
+extern lv_obj_t *ui_CurrentC3;
+extern lv_obj_t *ui_PowerC3;
+extern lv_obj_t *ui_USBC2;
+extern lv_obj_t *ui_ImageC2;
+extern lv_obj_t *ui_ImageC2Fast;
+extern lv_obj_t *ui_VoltageC2;
+extern lv_obj_t *ui_CurrentC2;
+extern lv_obj_t *ui_PowerC2;
+extern lv_obj_t *ui_USBC1;
+extern lv_obj_t *ui_ImageC1;
+extern lv_obj_t *ui_ImageC1Fast;
+extern lv_obj_t *ui_VoltageC4;
+extern lv_obj_t *ui_CurrentC4;
+extern lv_obj_t *ui_PowerC4;
+extern lv_obj_t *ui_MainPower;
+extern lv_obj_t *ui_TextVoltage;
+extern lv_obj_t *ui_Voltage;
+extern lv_obj_t *ui_TextCurrent;
+extern lv_obj_t *ui_Current;
+extern lv_obj_t *ui_TextPower;
+extern lv_obj_t *ui_Power;
 void ui_event_Weather( lv_event_t * e);
 extern lv_obj_t *ui_Weather;
-extern lv_obj_t *ui_ImageWeather;
-extern lv_obj_t *ui_InformationDock;
-extern lv_obj_t *ui_Voltage;
-extern lv_obj_t *ui_TextU;
-extern lv_obj_t *ui_TextV;
-extern lv_obj_t *ui_Current;
-extern lv_obj_t *ui_TextI;
-extern lv_obj_t *ui_TextA;
-extern lv_obj_t *ui_Power;
-extern lv_obj_t *ui_TextP;
-extern lv_obj_t *ui_TextW;
-extern lv_obj_t *ui_ImageWiFi;
-extern lv_obj_t *ui_Hour;
-extern lv_obj_t *ui_Minute;
-extern lv_obj_t *ui_Second;
-extern lv_obj_t *ui_TextHM;
-extern lv_obj_t *ui_TextMS;
-extern lv_obj_t *ui_USBADock;
-extern lv_obj_t *ui_ImageUSBA;
-extern lv_obj_t *ui_VoltageUSBA;
-extern lv_obj_t *ui_USBC3Dock;
-extern lv_obj_t *ui_ImageUSBC3;
-extern lv_obj_t *ui_VoltageUSBC3;
-extern lv_obj_t *ui_USBC2Dock;
-extern lv_obj_t *ui_ImageUSBC2;
-extern lv_obj_t *ui_ImageUSBC2Fast;
-extern lv_obj_t *ui_VoltageUSBC2;
-extern lv_obj_t *ui_USBC1Dock;
-extern lv_obj_t *ui_ImageUSBC1;
-extern lv_obj_t *ui_ImageUSBC1Fast;
-extern lv_obj_t *ui_VoltageUSBC1;
+extern lv_obj_t *ui_TextWeather;
+void ui_event_Setting( lv_event_t * e);
+extern lv_obj_t *ui_Setting;
+extern lv_obj_t *ui_TextSetting;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SettingScreen
@@ -86,8 +90,8 @@ void ui_event_WiFiWebPage( lv_event_t * e);
 extern lv_obj_t *ui_WiFiWebPage;
 extern lv_obj_t *ui_ImageWiFiWebPage;
 extern lv_obj_t *ui_TextWiFiWebPage;
-void ui_event_ADCAdjust( lv_event_t * e);
-extern lv_obj_t *ui_ADCAdjust;
+void ui_event_AdvancedSetting( lv_event_t * e);
+extern lv_obj_t *ui_AdvancedSetting;
 extern lv_obj_t *ui_ImageADCAdjust;
 extern lv_obj_t *ui_TextADCAdjust;
 extern lv_obj_t *ui_PanelFanSwitch;
@@ -108,32 +112,33 @@ extern lv_obj_t *ui_Back;
 extern lv_obj_t *ui_TextBack;
 // CUSTOM VARIABLES
 
-// SCREEN: ui_ADCAdjustScreen
-void ui_ADCAdjustScreen_screen_init(void);
-extern lv_obj_t *ui_ADCAdjustScreen;
-extern lv_obj_t *ui_ADCHeader;
-extern lv_obj_t *ui_TextADCHeader;
-extern lv_obj_t *ui_ADCAdjustDock;
-void ui_event_USBAAdjust( lv_event_t * e);
-extern lv_obj_t *ui_USBAAdjust;
-extern lv_obj_t *ui_ImageUSBAAdjust;
-extern lv_obj_t *ui_VoltageUSBAADC;
-void ui_event_USBC3Adjust( lv_event_t * e);
-extern lv_obj_t *ui_USBC3Adjust;
-extern lv_obj_t *ui_ImageUSBC3Adjust;
-extern lv_obj_t *ui_VoltageUSBC3ADC;
-void ui_event_USBC2Adjust( lv_event_t * e);
-extern lv_obj_t *ui_USBC2Adjust;
-extern lv_obj_t *ui_ImageUSBC2Adjust;
-extern lv_obj_t *ui_ImageUSBC3AdjustB;
-extern lv_obj_t *ui_VoltageUSBC2ADC;
-void ui_event_USBC1Adjust( lv_event_t * e);
-extern lv_obj_t *ui_USBC1Adjust;
-extern lv_obj_t *ui_ImageUSBC1Adjust;
-extern lv_obj_t *ui_ImageUSBC3AdjustB1;
-extern lv_obj_t *ui_VoltageUSBC1ADC;
-void ui_event_ADCBack( lv_event_t * e);
-extern lv_obj_t *ui_ADCBack;
+// SCREEN: ui_AdvancedSettingScreen
+void ui_AdvancedSettingScreen_screen_init(void);
+extern lv_obj_t *ui_AdvancedSettingScreen;
+extern lv_obj_t *ui_AdvancedSettingHeader;
+extern lv_obj_t *ui_TextAdvancedSetting;
+extern lv_obj_t *ui_AdvancedSettingDock;
+void ui_event_USBA1Adjust( lv_event_t * e);
+extern lv_obj_t *ui_USBA1Adjust;
+extern lv_obj_t *ui_ImageUSBA1ADC;
+extern lv_obj_t *ui_TextUSBA1;
+extern lv_obj_t *ui_VoltageUSBA1ADC;
+void ui_event_USBA2Adjust( lv_event_t * e);
+extern lv_obj_t *ui_USBA2Adjust;
+extern lv_obj_t *ui_ImageUSBA2ADC;
+extern lv_obj_t *ui_TextUSBA3;
+extern lv_obj_t *ui_VoltageUSBA2ADC;
+void ui_event_ThermometerAdjust( lv_event_t * e);
+extern lv_obj_t *ui_ThermometerAdjust;
+extern lv_obj_t *ui_ImageThermometer;
+extern lv_obj_t *ui_SysTempAdjust;
+extern lv_obj_t *ui_TextThermometer;
+extern lv_obj_t *ui_ThermometerControlDock;
+extern lv_obj_t *ui_TextThermometerControl;
+void ui_event_ThermometerControl( lv_event_t * e);
+extern lv_obj_t *ui_ThermometerControl;
+void ui_event_AdvancedSettingBack( lv_event_t * e);
+extern lv_obj_t *ui_AdvancedSettingBack;
 extern lv_obj_t *ui_TextADCBack;
 // CUSTOM VARIABLES
 
@@ -185,12 +190,12 @@ extern lv_obj_t *ui_TextWTime;
 extern lv_obj_t *ui_WHour;
 extern lv_obj_t *ui_WMinute;
 extern lv_obj_t *ui_WSecond;
-extern lv_obj_t *ui_WPowerDock;
+extern lv_obj_t *ui_PowerDock;
 extern lv_obj_t *ui_TextWVoltage;
-extern lv_obj_t *ui_WVoltage;
 extern lv_obj_t *ui_TextWCurrent;
+extern lv_obj_t *ui_TextPower1;
+extern lv_obj_t *ui_WVoltage;
 extern lv_obj_t *ui_WCurrent;
-extern lv_obj_t *ui_TextWPower;
 extern lv_obj_t *ui_WPower;
 // CUSTOM VARIABLES
 
@@ -200,8 +205,6 @@ extern lv_obj_t *ui____initial_actions0;
 // IMAGES AND IMAGE SETS
 LV_IMG_DECLARE( ui_img_426970754);   // assets/mdi_usb-c-port.png
 LV_IMG_DECLARE( ui_img_2092987087);   // assets/icon-park-outline_usb-micro-one.png
-LV_IMG_DECLARE( ui_img_1671917170);   // assets/material-symbols_settings-rounded.png
-LV_IMG_DECLARE( ui_img_1222334931);   // assets/fluent_weather-fog-20-filled.png
 LV_IMG_DECLARE( ui_img_1338783594);   // assets/material-symbols_wifi-off-rounded.png
 LV_IMG_DECLARE( ui_img_175199537);   // assets/mynaui_lightning-solid.png
 LV_IMG_DECLARE( ui_img_593743026);   // assets/material-symbols_wifi-rounded.png
@@ -273,6 +276,8 @@ LV_IMG_DECLARE( ui_img_514_png);   // assets/514.png
 LV_IMG_DECLARE( ui_img_515_png);   // assets/515.png
 LV_IMG_DECLARE( ui_img_900_png);   // assets/900.png
 LV_IMG_DECLARE( ui_img_901_png);   // assets/901.png
+LV_IMG_DECLARE( ui_img_1222334931);   // assets/fluent_weather-fog-20-filled.png
+LV_IMG_DECLARE( ui_img_1671917170);   // assets/material-symbols_settings-rounded.png
 
 // FONTS
 LV_FONT_DECLARE( ui_font_ASCII20MONO);
@@ -280,6 +285,7 @@ LV_FONT_DECLARE( ui_font_ASCII32MONO);
 LV_FONT_DECLARE( ui_font_ASCII40MONO);
 LV_FONT_DECLARE( ui_font_ASCII56MONO);
 LV_FONT_DECLARE( ui_font_CHN);
+LV_FONT_DECLARE( ui_font_CHN18);
 
 // UI INIT
 void ui_init(void);

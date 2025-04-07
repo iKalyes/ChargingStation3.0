@@ -54,3 +54,19 @@ def WIFIResrt(event_struct):
 def WIFIStart(event_struct):
     return
 
+
+def TempControlON(event_struct):
+    return
+
+
+def TempControlOFF(event_struct):
+    return
+
+
+def TempAdjust(event_struct):
+    return
+
+
+def USBA1Adjust(event_struct):
+    return
+

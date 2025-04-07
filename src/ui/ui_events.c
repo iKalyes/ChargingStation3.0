@@ -74,3 +74,28 @@ void WIFIStart(lv_event_t * e)
 {
 	// Your code here
 }
+
+void USBA1Adjust(lv_event_t * e)
+{
+	// Your code here
+}
+
+void USBA2Adjust(lv_event_t * e)
+{
+	// Your code here
+}
+
+void TempAdjust(lv_event_t * e)
+{
+	// Your code here
+}
+
+void TempControlON(lv_event_t * e)
+{
+	// Your code here
+}
+
+void TempControlOFF(lv_event_t * e)
+{
+	// Your code here
+}

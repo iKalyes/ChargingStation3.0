@@ -16,10 +16,11 @@ void USBAPowerON(lv_event_t * e);
 void USBAPowerOFF(lv_event_t * e);
 void FanSwitchON(lv_event_t * e);
 void FanSwitchOFF(lv_event_t * e);
-void USBAAdjust(lv_event_t * e);
-void USBC3Adjust(lv_event_t * e);
-void USBC2Adjust(lv_event_t * e);
-void USBC1Adjust(lv_event_t * e);
+void USBA1Adjust(lv_event_t * e);
+void USBA2Adjust(lv_event_t * e);
+void TempAdjust(lv_event_t * e);
+void TempControlON(lv_event_t * e);
+void TempControlOFF(lv_event_t * e);
 void WIFIStart(lv_event_t * e);
 void WIFIResrt(lv_event_t * e);
 

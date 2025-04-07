@@ -30,15 +30,6 @@ if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_
 }
 }
 
-void ui_event_Setting( lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-if ( event_code == LV_EVENT_PRESSED) {
-      _ui_screen_change( &ui_SettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, &ui_SettingScreen_screen_init);
-      lvgl_group_to_setting();
-}
-}
-
 void ui_event_Weather( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
@@ -48,14 +39,32 @@ if ( event_code == LV_EVENT_PRESSED) {
 }
 }
 
-void ui_event_ADCAdjust(lv_event_t * e)
+void ui_event_Setting( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      _ui_screen_change( &ui_SettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, &ui_SettingScreen_screen_init);
+      lvgl_group_to_setting();
+}
+}
+
+void ui_event_WiFiWebPage(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_PRESSED) {
-        _ui_screen_change(&ui_ADCAdjustScreen, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, &ui_ADCAdjustScreen_screen_init);
-        lvgl_group_to_adc();
+        _ui_screen_change(&ui_WiFiScreen, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_WiFiScreen_screen_init);
+        lvgl_group_to_wifi();
     }
+}
+
+void ui_event_AdvancedSetting( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+if ( event_code == LV_EVENT_PRESSED) {
+      _ui_screen_change( &ui_AdvancedSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_AdvancedSettingScreen_screen_init);
+      lvgl_group_to_adc();
+}
 }
 
 void ui_event_FanSwitch( lv_event_t * e) {
@@ -101,63 +110,50 @@ if ( event_code == LV_EVENT_PRESSED) {
 }
 }
 
-void ui_event_USBAAdjust(lv_event_t * e)
-{
+void ui_event_USBA1Adjust(lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_VALUE_CHANGED) {
-        USBAAdjust(e);
+        USBA1Adjust(e);
         voltage0_adc = (float)(lv_slider_get_value(ui_USBAAdjust)) * 0.01f;
     }
 }
 
-void ui_event_USBC3Adjust(lv_event_t * e)
-{
+void ui_event_USBA2Adjust( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_VALUE_CHANGED) {
-        USBC3Adjust(e);
-        voltage1_adc = (float)(lv_slider_get_value(ui_USBC3Adjust)) * 0.01f;
-    }
+if ( event_code == LV_EVENT_VALUE_CHANGED) {
+      USBA2Adjust( e );
+}
 }
 
-void ui_event_USBC2Adjust(lv_event_t * e)
-{
+void ui_event_ThermometerAdjust( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_VALUE_CHANGED) {
-        USBC2Adjust(e);
-    }
+if ( event_code == LV_EVENT_VALUE_CHANGED) {
+      TempAdjust( e );
+}
 }
 
-void ui_event_USBC1Adjust(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
+void ui_event_ThermometerControl( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
-    if(event_code == LV_EVENT_VALUE_CHANGED) {
-        USBC1Adjust(e);
-    }
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      TempControlON( e );
+}
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      TempControlOFF( e );
+}
 }
 
-void ui_event_ADCBack(lv_event_t * e)
-{
+void ui_event_AdvancedSettingBack( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_PRESSED) {
-        _ui_screen_change(&ui_SettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, &ui_SettingScreen_screen_init);
-        lvgl_group_to_setting();
-        save_adc_setting();
-    }
+if ( event_code == LV_EVENT_PRESSED) {
+      _ui_screen_change( &ui_SettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_SettingScreen_screen_init);
+      lvgl_group_to_setting();
+      save_adc_setting();
 }
-
-void ui_event_WiFiWebPage(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_PRESSED) {
-        _ui_screen_change(&ui_WiFiScreen, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_WiFiScreen_screen_init);
-        lvgl_group_to_wifi();
-    }
 }
 
 void ui_event_WIFIStart(lv_event_t * e)

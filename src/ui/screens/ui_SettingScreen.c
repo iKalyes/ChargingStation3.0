@@ -87,19 +87,19 @@ lv_obj_set_align( ui_TextWiFiWebPage, LV_ALIGN_LEFT_MID );
 lv_label_set_text(ui_TextWiFiWebPage,"无线配置界面");
 lv_obj_set_style_text_font(ui_TextWiFiWebPage, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-ui_ADCAdjust = lv_btn_create(ui_SettingDock);
-lv_obj_set_width( ui_ADCAdjust, 228);
-lv_obj_set_height( ui_ADCAdjust, 28);
-lv_obj_set_x( ui_ADCAdjust, 0 );
-lv_obj_set_y( ui_ADCAdjust, 36 );
-lv_obj_set_align( ui_ADCAdjust, LV_ALIGN_TOP_MID );
-lv_obj_add_flag( ui_ADCAdjust, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
-lv_obj_clear_flag( ui_ADCAdjust, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
-lv_obj_set_style_radius(ui_ADCAdjust, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
-ui_object_set_themeable_style_property(ui_ADCAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_BG_Button);
-ui_object_set_themeable_style_property(ui_ADCAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_BG_Button);
+ui_AdvancedSetting = lv_btn_create(ui_SettingDock);
+lv_obj_set_width( ui_AdvancedSetting, 228);
+lv_obj_set_height( ui_AdvancedSetting, 28);
+lv_obj_set_x( ui_AdvancedSetting, 0 );
+lv_obj_set_y( ui_AdvancedSetting, 36 );
+lv_obj_set_align( ui_AdvancedSetting, LV_ALIGN_TOP_MID );
+lv_obj_add_flag( ui_AdvancedSetting, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
+lv_obj_clear_flag( ui_AdvancedSetting, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+lv_obj_set_style_radius(ui_AdvancedSetting, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_object_set_themeable_style_property(ui_AdvancedSetting, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_BG_Button);
+ui_object_set_themeable_style_property(ui_AdvancedSetting, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_BG_Button);
 
-ui_ImageADCAdjust = lv_img_create(ui_ADCAdjust);
+ui_ImageADCAdjust = lv_img_create(ui_AdvancedSetting);
 lv_img_set_src(ui_ImageADCAdjust, &ui_img_155116563);
 lv_obj_set_width( ui_ImageADCAdjust, LV_SIZE_CONTENT);  /// 32
 lv_obj_set_height( ui_ImageADCAdjust, LV_SIZE_CONTENT);   /// 32
@@ -107,13 +107,13 @@ lv_obj_set_align( ui_ImageADCAdjust, LV_ALIGN_LEFT_MID );
 lv_obj_add_flag( ui_ImageADCAdjust, LV_OBJ_FLAG_ADV_HITTEST );   /// Flags
 lv_obj_clear_flag( ui_ImageADCAdjust, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 
-ui_TextADCAdjust = lv_label_create(ui_ADCAdjust);
+ui_TextADCAdjust = lv_label_create(ui_AdvancedSetting);
 lv_obj_set_width( ui_TextADCAdjust, LV_SIZE_CONTENT);  /// 1
 lv_obj_set_height( ui_TextADCAdjust, LV_SIZE_CONTENT);   /// 1
 lv_obj_set_x( ui_TextADCAdjust, 45 );
 lv_obj_set_y( ui_TextADCAdjust, 0 );
 lv_obj_set_align( ui_TextADCAdjust, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_TextADCAdjust,"接口电压校准");
+lv_label_set_text(ui_TextADCAdjust,"系统高级设置");
 lv_obj_set_style_text_font(ui_TextADCAdjust, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_PanelFanSwitch = lv_obj_create(ui_SettingDock);
@@ -274,7 +274,7 @@ ui_object_set_themeable_style_property(ui_TextBack, LV_PART_MAIN| LV_STATE_DEFAU
 lv_obj_set_style_text_font(ui_TextBack, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 lv_obj_add_event_cb(ui_WiFiWebPage, ui_event_WiFiWebPage, LV_EVENT_ALL, NULL);
-lv_obj_add_event_cb(ui_ADCAdjust, ui_event_ADCAdjust, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_AdvancedSetting, ui_event_AdvancedSetting, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_FanSwitch, ui_event_FanSwitch, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_SliderSleepTime, ui_event_SliderSleepTime, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_SliderBrightness, ui_event_SliderBrightness, LV_EVENT_ALL, NULL);

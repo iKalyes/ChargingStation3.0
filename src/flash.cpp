@@ -53,7 +53,7 @@ void save_USBC_setting()
     flash.end();
 }
 
-void save_adc_setting()
+void save_advanced_setting()
 {
     flash.begin("setting");
     flash.putFloat("voltage0_adc", voltage0_adc);

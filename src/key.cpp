@@ -22,7 +22,7 @@ static void keypad_read(lv_indev_drv_t* drv, lv_indev_data_t* data)
     bool is_slider = focused_obj ? lv_obj_check_type(focused_obj, &lv_slider_class) : false;
     
     // 检测各按键状态
-    if(!digitalRead(39)) {  
+    if(!digitalRead(SWITCH_LEFT) {  
         data->state = LV_INDEV_STATE_PRESSED;
         // 只有当slider被选中时才使用LEFT/RIGHT调整值
         if(is_slider && slider_selected) {
@@ -33,7 +33,7 @@ static void keypad_read(lv_indev_drv_t* drv, lv_indev_data_t* data)
             last_key = LV_KEY_PREV;
         }
     }
-    else if(!digitalRead(41)) {
+    else if(!digitalRead(SWITCH_RIGHT)) {
         data->state = LV_INDEV_STATE_PRESSED;
         // 只有当slider被选中时才使用LEFT/RIGHT调整值
         if(is_slider && slider_selected) {
@@ -44,7 +44,7 @@ static void keypad_read(lv_indev_drv_t* drv, lv_indev_data_t* data)
             last_key = LV_KEY_NEXT;
         }
     }
-    else if(!digitalRead(40)) {  // 确认键按下
+    else if(!digitalRead(SWITCH_ENTER)) {  // 确认键按下
         data->state = LV_INDEV_STATE_PRESSED;
         data->key = LV_KEY_ENTER;
         last_key = LV_KEY_ENTER;
@@ -72,9 +72,9 @@ static void keypad_read(lv_indev_drv_t* drv, lv_indev_data_t* data)
 // 初始化LVGL按键输入设备
 void key_init()
 {
-    pinMode(39, INPUT);
-    pinMode(40, INPUT);
-    pinMode(41, INPUT);
+    pinMode(SWITCH_LEFT, INPUT);
+    pinMode(SWITCH_ENTER, INPUT);
+    pinMode(SWITCH_RIGHT, INPUT);
     
     // 注册LVGL输入设备
     static lv_indev_drv_t indev_drv;

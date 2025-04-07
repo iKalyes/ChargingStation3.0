@@ -15,7 +15,7 @@
 #include <lvgl_group.h>
 #include <flash.h>
 #include <gpio.h>
-#include <wifi_server.h>
+#include <wifi_service.h>
 
 
 

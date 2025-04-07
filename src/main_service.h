@@ -1,5 +1,5 @@
-#ifndef _TIME_SERVER_H_
-#define _TIME_SERVER_H_
+#ifndef _MAIN_SERVICE_H_
+#define _MAIN_SERVICE_H_
 
 #include <Arduino.h>
 #include <NTPClient.h>
@@ -9,6 +9,7 @@
 
 #include <variables.h>
 #include <weather.h>
+#include <gpio.h>
 #include <lvgl.h>
 #include "ui/ui.h"
 

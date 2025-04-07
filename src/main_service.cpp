@@ -1,4 +1,4 @@
-#include <time_server.h>
+#include <main_service.h>
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP);
@@ -297,7 +297,7 @@ void deep_sleep()
             if((timeClient.getEpochTime() / 60) - sleep_EpochTime >= sleep_time)
             {
                 esp_wifi_stop();
-                esp_sleep_enable_ext0_wakeup(GPIO_NUM_4, 0);
+                esp_sleep_enable_ext0_wakeup(SWITCH_ENTER, 0);
                 esp_deep_sleep_start();
             }
         }

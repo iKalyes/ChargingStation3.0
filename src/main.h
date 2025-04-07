@@ -11,7 +11,7 @@
 #include <variables.h>
 #include <flash.h>
 #include <gpio.h>
-#include <wifi_server.h>
-#include <time_server.h>
+#include <wifi_service.h>
+#include <main_service.h>
 
 #endif

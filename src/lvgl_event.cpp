@@ -63,7 +63,7 @@ void ui_event_AdvancedSetting( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_PRESSED) {
       _ui_screen_change( &ui_AdvancedSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_AdvancedSettingScreen_screen_init);
-      lvgl_group_to_adc();
+      lvgl_group_to_advancedsetting();
 }
 }
 

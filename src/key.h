@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <variables.h>
 #include <lvgl.h>
+#include <gpio.h>
 #include "ui/ui.h"
 
 void key_init();

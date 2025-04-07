@@ -1,4 +1,4 @@
-#include <wifi_server.h>
+#include <wifi_service.h>
 
 WiFiManager wm;
 
@@ -60,9 +60,6 @@ void saveParamCallback(){
 
 }
 
-
-bool time_get_strap_unconnect = false;
-int sleep_millis = 0;
 void wificonfig()
 {
   if(wificonfig_flag == true)
@@ -98,41 +95,16 @@ void wificonfig()
 
         lv_img_set_src(ui_ImageWiFi, &ui_img_593743026);
 
-        wificonfig_flag = false;
-
         _ui_screen_change( &ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
         lvgl_group_to_main();
+
+        wificonfig_flag = false;
     }
   }
   else
   {
-    if(time_get_strap_unconnect == false)
-    {
-      time_get_strap_unconnect = true;
-      sleep_millis = millis();
-    }
-
-    if(sleep_time == 0)
-    {
-      return;
-    }
-    else
-    {
-      if(millis() - sleep_millis >= sleep_time * 60000)
-      {
-        esp_wifi_stop();
-        esp_sleep_enable_ext0_wakeup(GPIO_NUM_4, 0);
-        esp_deep_sleep_start();
-      }
-    }
+    deep_sleep_unconnect();
   }
-}
-
-void wifireset()
-{
-  wm.resetSettings();
-  delete_wifi_config();
-  ESP.restart();
 }
 
 void wificonnect()
@@ -144,7 +116,6 @@ void wificonnect()
   {
     lv_task_handler();
     wificonfig();
-    Serial.println("wifi connecting...");
   }
   if(WiFi.status() == WL_CONNECTED)
   {
@@ -154,5 +125,36 @@ void wificonnect()
     lv_label_set_text(ui_IPADDR, WiFi.localIP().toString().c_str());
 
     lv_img_set_src(ui_ImageWiFi, &ui_img_593743026);
+  }
+}
+
+void wifireset()
+{
+  wm.resetSettings();
+  delete_wifi_config();
+  ESP.restart();
+}
+
+bool time_get_strap_unconnect = false;
+int sleep_millis = 0;
+void deep_sleep_unconnect()
+{
+  if(time_get_strap_unconnect == false)
+  {
+    time_get_strap_unconnect = true;
+    sleep_millis = millis();
+  }
+  if(sleep_time == 0)
+  {
+    return;
+  }
+  else
+  {
+    if(millis() - sleep_millis >= sleep_time * 60000)
+    {
+      esp_wifi_stop();
+      esp_sleep_enable_ext0_wakeup(SWITCH_ENTER, 0);
+      esp_deep_sleep_start();
+    }
   }
 }

@@ -1,5 +1,5 @@
-#ifndef _WIFI_SERVER_H
-#define _WIFI_SERVER_H
+#ifndef _WIFI_SERVICE_H
+#define _WIFI_SERVICE_H
 
 #include <Arduino.h>
 #include <WiFi.h>
@@ -8,16 +8,20 @@
 #include <esp_wifi.h>
 
 #include <variables.h>
-#include <time_server.h>
+#include <main_service.h>
 #include <lvgl_group.h>
+#include <gpio.h>
 #include <flash.h>
 #include <lvgl.h>
 #include <ui/ui.h>
 
 void Webconfig();
 void saveParamCallback();
+
 void wificonfig();
-void wifireset();
 void wificonnect();
+void wifireset();
+
+void deep_sleep_unconnect();
 
 #endif

@@ -16,6 +16,7 @@
 
 void time_server_init(const char* poolServerName, long timeOffset, float updateInterval);
 void time_server_setting(const char* poolServerName, long timeOffset, float updateInterval);
+void time_server_setsynctime(float updateInterval);
 void time_server_refresh(lv_timer_t *timer);
 void time_server_update();
 void time_server_reconnect();

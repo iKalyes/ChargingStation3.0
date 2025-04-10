@@ -37,6 +37,8 @@ void load_setting()
     voltage0_adc = flash.getFloat("voltage0_adc", 10.85f);
     voltage1_adc = flash.getFloat("voltage1_adc", 10.85f);
     temperature_adc = flash.getFloat("temperature_adc", 1.0f);
+    tempcontrol_fan = flash.getBool("tempcontrol_fan", false);
+    led_enabled = flash.getBool("LED_enabled", false);
     flash.end();
 }
 
@@ -60,6 +62,9 @@ void save_advanced_setting()
     flash.putFloat("voltage0_adc", voltage0_adc);
     flash.putFloat("voltage1_adc", voltage1_adc);
     flash.putFloat("temperature_adc", temperature_adc);
+    flash.putBool("tempcontrol_fan", tempcontrol_fan);
+    flash.putFloat("SyncTime", SyncTime);
+    flash.putBool("LED_enabled", led_enabled);
     flash.end();
 }
 

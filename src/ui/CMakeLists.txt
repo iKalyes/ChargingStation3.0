@@ -19,6 +19,8 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_123890670.c
     images/ui_img_763584403.c
     images/ui_img_f7_thermometer_png.c
+    images/ui_img_199350223.c
+    images/ui_img_2108985116.c
     images/ui_img_carbon_humidity_png.c
     images/ui_img_999_png.c
     images/ui_img_100_png.c

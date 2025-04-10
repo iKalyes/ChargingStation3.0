@@ -142,9 +142,38 @@ void ui_event_ThermometerControl( lv_event_t * e) {
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       TempControlON( e );
+      tempcontrol_fan = true;
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       TempControlOFF( e );
+      tempcontrol_fan = false;
+}
+}
+
+void ui_event_LEDControl( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      LEDControlON( e );
+      led_enabled = true;
+}
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      LEDControlOFF( e );
+      led_enabled = false;
+}
+}
+
+void ui_event_SyncTimeAdjust( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED) {
+    float value = lv_slider_get_value(target) / 10.0f;
+    int value_full = round(value * 10);
+    int value_int = value_full / 10;
+    int value_frac = value_full % 10;
+    lv_label_set_text_fmt(ui_TextSyncTimeAdjust, "%d.%d小时", value_int, value_frac);
+    SyncTime = value;
+    time_server_setsynctime(SyncTime);
 }
 }
 

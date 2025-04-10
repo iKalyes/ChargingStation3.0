@@ -4,9 +4,10 @@ lv_timer_t* adc_timer;
 float voltage0;
 float voltage1;
 float temperature;
+float mcu_temperature;
 
 // 添加移动平均滤波器的参数
-const int TEMPERATURE_SAMPLES = 50; // 采样数量
+const int TEMPERATURE_SAMPLES = 5; // 采样数量
 float temperature_buffer[TEMPERATURE_SAMPLES]; // 存储温度的缓冲区
 int temperature_index = 0; // 缓冲区索引
 float temperature_sum = 0; // 温度总和
@@ -29,10 +30,10 @@ float beta = 3950.0f; // NTC的B值
 // 读取和平滑处理
 void readVoltages() {
     // 读取原始值
-    voltage0 = voltage0_adc * (float)(analogRead(ADC0_PIN)) * 1e-3;
-    voltage1 = voltage1_adc * (float)(analogRead(ADC1_PIN)) * 1e-3;
+    voltage0 = voltage0_adc * (float)(analogReadMilliVolts(ADC0_PIN)) * 1e-3;
+    voltage1 = voltage1_adc * (float)(analogReadMilliVolts(ADC1_PIN)) * 1e-3;
 
-    float ntc_voltage = analogRead(ADC2_PIN) * 3.3 / 4095.0;
+    float ntc_voltage = analogReadMilliVolts(ADC2_PIN) * 3.3 / 4095.0;
     float r_ntc = R_DIV * ntc_voltage / (3.3 - ntc_voltage);
     float steinhart = r_ntc / R_NTC;
     steinhart = log(steinhart);
@@ -46,12 +47,12 @@ void readVoltages() {
     temperature_buffer[temperature_index] = temperature; // 存储新值
     temperature_index = (temperature_index + 1) % TEMPERATURE_SAMPLES; // 更新索引
     temperature_average = temperature_sum / TEMPERATURE_SAMPLES; // 计算平均值
-    Serial.println(temperature_average);
 }
 
 void adc_task(lv_timer_t *timer)
 {
     readVoltages();
+    TempControl_Fan(temperature_average);
     
     int voltage0_full = round(voltage0 * 100);
     int voltage0_int = voltage0_full / 100;

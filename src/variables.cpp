@@ -1,9 +1,12 @@
 #include <variables.h>
 
-//ADC ADJUST//
+//ADVANCED SETTING//
 float voltage0_adc = 10.85f;
 float voltage1_adc = 10.85f;
 float temperature_adc = 0.1f;
+bool tempcontrol_fan = false; //温控风扇开关
+// 全局变量控制所有LED灯的开关状态
+bool led_enabled = false;
 //SEETING SCREEN//
 uint8_t brightness = 0;
 uint16_t sleep_time = 0;

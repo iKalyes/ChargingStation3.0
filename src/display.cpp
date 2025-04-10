@@ -75,12 +75,14 @@ void style_reset()
     lv_obj_set_style_outline_color(ui_SliderBrightness, lv_color_hex(0xffff00), LV_STATE_EDITED);
     lv_obj_set_style_outline_color(ui_Back, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
 
-    lv_obj_set_style_outline_color(ui_USBA1Adjust, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_USBA1Adjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_USBA2Adjust, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_USBA2Adjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_ThermometerAdjust, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_ThermometerAdjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_USBA1Adjust, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBA1Adjust, lv_color_hex(0x0000ff), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_USBA2Adjust, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBA2Adjust, lv_color_hex(0x0000ff), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_ThermometerAdjust, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_ThermometerAdjust, lv_color_hex(0x0000ff), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_SyncTimeAdjust, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_SyncTimeAdjust, lv_color_hex(0x0000ff), LV_STATE_EDITED);
     lv_obj_set_style_outline_color(ui_AdvancedSettingBack, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);;
 
     lv_obj_set_style_outline_color(ui_WIFIStart, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
@@ -136,6 +138,10 @@ void setting_reset()
     lv_label_set_text_fmt(ui_Brightness, "%d%%", (uint8_t)(brightness / 2.55f + 0.5f));
     lv_slider_set_value(ui_SliderSleepTime, sleep_time, LV_ANIM_OFF);
     lv_label_set_text_fmt(ui_SleepTime, "%dM", sleep_time);
+    int value_full = round(SyncTime * 10);
+    int value_int = value_full / 10;
+    int value_frac = value_full % 10;
+    lv_label_set_text_fmt(ui_TextSyncTimeAdjust, "%d.%d小时", value_int, value_frac);
     if(fan_switch == true)
     {
         lv_obj_add_state(ui_FanSwitch, LV_STATE_CHECKED);
@@ -146,7 +152,24 @@ void setting_reset()
         lv_obj_clear_state(ui_FanSwitch, LV_STATE_CHECKED);
         FAN_OFF();
     }
+    if(tempcontrol_fan == true)
+    {
+        lv_obj_add_state(ui_ThermometerControl, LV_STATE_CHECKED);
+    }
+    else
+    {
+        lv_obj_clear_state(ui_ThermometerControl, LV_STATE_CHECKED);
+    }
+    if(led_enabled == true)
+    {
+        lv_obj_add_state(ui_LEDControl, LV_STATE_CHECKED);
+    }
+    else
+    {
+        lv_obj_clear_state(ui_LEDControl, LV_STATE_CHECKED);
+    }
     lv_slider_set_value(ui_USBA1Adjust, (uint16_t)(voltage0_adc * 100), LV_ANIM_OFF);
     lv_slider_set_value(ui_USBA2Adjust, (uint16_t)(voltage1_adc * 100), LV_ANIM_OFF);
     lv_slider_set_value(ui_ThermometerAdjust, (uint16_t)(temperature_adc * 100), LV_ANIM_OFF);
+    lv_slider_set_value(ui_ThermometerAdjust, (uint8_t)(SyncTime * 10), LV_ANIM_OFF);
 }

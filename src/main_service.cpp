@@ -23,6 +23,11 @@ void time_server_setting(const char* poolServerName, long timeOffset, float upda
     timeClient.setUpdateInterval(updateInterval * 3600000);
 }
 
+void time_server_setsynctime(float updateInterval)
+{
+    timeClient.setUpdateInterval(updateInterval * 3600000);
+} 
+
 uint8_t hour, minute, second, week;
 int reconnect_timer = 0;
 void time_server_refresh(lv_timer_t *timer)

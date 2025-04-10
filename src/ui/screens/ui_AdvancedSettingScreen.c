@@ -44,6 +44,10 @@ lv_obj_clear_flag( ui_AdvancedSettingDock, LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_S
 lv_obj_set_style_radius(ui_AdvancedSettingDock, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 ui_object_set_themeable_style_property(ui_AdvancedSettingDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_Container);
 ui_object_set_themeable_style_property(ui_AdvancedSettingDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_Container);
+lv_obj_set_style_pad_left(ui_AdvancedSettingDock, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_pad_right(ui_AdvancedSettingDock, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_pad_top(ui_AdvancedSettingDock, 2, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_pad_bottom(ui_AdvancedSettingDock, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_USBA1Adjust = lv_slider_create(ui_AdvancedSettingDock);
 lv_slider_set_range(ui_USBA1Adjust, 850,1250);
@@ -112,7 +116,7 @@ if (lv_slider_get_mode(ui_USBA2Adjust)==LV_SLIDER_MODE_RANGE ) lv_slider_set_lef
 lv_obj_set_width( ui_USBA2Adjust, 228);
 lv_obj_set_height( ui_USBA2Adjust, 28);
 lv_obj_set_x( ui_USBA2Adjust, 0 );
-lv_obj_set_y( ui_USBA2Adjust, 32 );
+lv_obj_set_y( ui_USBA2Adjust, 35 );
 lv_obj_set_align( ui_USBA2Adjust, LV_ALIGN_TOP_MID );
 lv_obj_set_style_radius(ui_USBA2Adjust, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 ui_object_set_themeable_style_property(ui_USBA2Adjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_BG_Button);
@@ -166,13 +170,13 @@ ui_object_set_themeable_style_property(ui_VoltageUSBA2ADC, LV_PART_MAIN| LV_STAT
 lv_obj_set_style_text_font(ui_VoltageUSBA2ADC, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_ThermometerAdjust = lv_slider_create(ui_AdvancedSettingDock);
-lv_slider_set_range(ui_ThermometerAdjust, 0,500);
+lv_slider_set_range(ui_ThermometerAdjust, 0,200);
 lv_slider_set_value( ui_ThermometerAdjust, 100, LV_ANIM_OFF);
 if (lv_slider_get_mode(ui_ThermometerAdjust)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_ThermometerAdjust, 0, LV_ANIM_OFF);
 lv_obj_set_width( ui_ThermometerAdjust, 228);
 lv_obj_set_height( ui_ThermometerAdjust, 28);
 lv_obj_set_x( ui_ThermometerAdjust, 0 );
-lv_obj_set_y( ui_ThermometerAdjust, 62 );
+lv_obj_set_y( ui_ThermometerAdjust, 68 );
 lv_obj_set_align( ui_ThermometerAdjust, LV_ALIGN_TOP_MID );
 lv_obj_set_style_radius(ui_ThermometerAdjust, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 ui_object_set_themeable_style_property(ui_ThermometerAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_BG_Button);
@@ -196,12 +200,12 @@ ui_ImageThermometer = lv_img_create(ui_ThermometerAdjust);
 lv_img_set_src(ui_ImageThermometer, &ui_img_f7_thermometer_png);
 lv_obj_set_width( ui_ImageThermometer, LV_SIZE_CONTENT);  /// 32
 lv_obj_set_height( ui_ImageThermometer, LV_SIZE_CONTENT);   /// 32
-lv_obj_set_x( ui_ImageThermometer, -2 );
+lv_obj_set_x( ui_ImageThermometer, -6 );
 lv_obj_set_y( ui_ImageThermometer, 0 );
 lv_obj_set_align( ui_ImageThermometer, LV_ALIGN_LEFT_MID );
 lv_obj_add_flag( ui_ImageThermometer, LV_OBJ_FLAG_ADV_HITTEST );   /// Flags
 lv_obj_clear_flag( ui_ImageThermometer, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
-lv_img_set_zoom(ui_ImageThermometer,128);
+lv_img_set_zoom(ui_ImageThermometer,120);
 
 ui_SysTempAdjust = lv_label_create(ui_ThermometerAdjust);
 lv_obj_set_width( ui_SysTempAdjust, LV_SIZE_CONTENT);  /// 1
@@ -226,28 +230,21 @@ ui_object_set_themeable_style_property(ui_TextThermometer, LV_PART_MAIN| LV_STAT
 lv_obj_set_style_text_font(ui_TextThermometer, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
 
 ui_ThermometerControlDock = lv_obj_create(ui_AdvancedSettingDock);
-lv_obj_set_width( ui_ThermometerControlDock, 228);
+lv_obj_set_width( ui_ThermometerControlDock, 112);
 lv_obj_set_height( ui_ThermometerControlDock, 32);
-lv_obj_set_x( ui_ThermometerControlDock, 0 );
-lv_obj_set_y( ui_ThermometerControlDock, 92 );
-lv_obj_set_align( ui_ThermometerControlDock, LV_ALIGN_TOP_MID );
+lv_obj_set_x( ui_ThermometerControlDock, 4 );
+lv_obj_set_y( ui_ThermometerControlDock, 32 );
+lv_obj_set_align( ui_ThermometerControlDock, LV_ALIGN_LEFT_MID );
 lv_obj_clear_flag( ui_ThermometerControlDock, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 lv_obj_set_style_radius(ui_ThermometerControlDock, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 ui_object_set_themeable_style_property(ui_ThermometerControlDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_BG_Button);
 ui_object_set_themeable_style_property(ui_ThermometerControlDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_BG_Button);
 lv_obj_set_style_border_width(ui_ThermometerControlDock, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
 
-ui_TextThermometerControl = lv_label_create(ui_ThermometerControlDock);
-lv_obj_set_width( ui_TextThermometerControl, LV_SIZE_CONTENT);  /// 1
-lv_obj_set_height( ui_TextThermometerControl, LV_SIZE_CONTENT);   /// 1
-lv_obj_set_align( ui_TextThermometerControl, LV_ALIGN_LEFT_MID );
-lv_label_set_text(ui_TextThermometerControl,"散热温控开关");
-lv_obj_set_style_text_font(ui_TextThermometerControl, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
-
 ui_ThermometerControl = lv_switch_create(ui_ThermometerControlDock);
 lv_obj_set_width( ui_ThermometerControl, 64);
 lv_obj_set_height( ui_ThermometerControl, 26);
-lv_obj_set_x( ui_ThermometerControl, 148 );
+lv_obj_set_x( ui_ThermometerControl, 32 );
 lv_obj_set_y( ui_ThermometerControl, 0 );
 lv_obj_set_align( ui_ThermometerControl, LV_ALIGN_LEFT_MID );
 lv_obj_set_style_radius(ui_ThermometerControl, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -259,6 +256,113 @@ lv_obj_set_style_radius(ui_ThermometerControl, 5, LV_PART_INDICATOR| LV_STATE_DE
 lv_obj_set_style_radius(ui_ThermometerControl, 5, LV_PART_KNOB| LV_STATE_DEFAULT);
 lv_obj_set_style_bg_color(ui_ThermometerControl, lv_color_hex(0x00FF00), LV_PART_KNOB | LV_STATE_DEFAULT );
 lv_obj_set_style_bg_opa(ui_ThermometerControl, 255, LV_PART_KNOB| LV_STATE_DEFAULT);
+
+ui_ImageThermometer2 = lv_img_create(ui_ThermometerControlDock);
+lv_img_set_src(ui_ImageThermometer2, &ui_img_f7_thermometer_png);
+lv_obj_set_width( ui_ImageThermometer2, LV_SIZE_CONTENT);  /// 32
+lv_obj_set_height( ui_ImageThermometer2, LV_SIZE_CONTENT);   /// 32
+lv_obj_set_x( ui_ImageThermometer2, -15 );
+lv_obj_set_y( ui_ImageThermometer2, 0 );
+lv_obj_set_align( ui_ImageThermometer2, LV_ALIGN_LEFT_MID );
+lv_obj_add_flag( ui_ImageThermometer2, LV_OBJ_FLAG_ADV_HITTEST );   /// Flags
+lv_obj_clear_flag( ui_ImageThermometer2, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+lv_img_set_zoom(ui_ImageThermometer2,128);
+
+ui_SyncTimeAdjust = lv_slider_create(ui_AdvancedSettingDock);
+lv_slider_set_range(ui_SyncTimeAdjust, 1,120);
+lv_slider_set_value( ui_SyncTimeAdjust, 10, LV_ANIM_OFF);
+if (lv_slider_get_mode(ui_SyncTimeAdjust)==LV_SLIDER_MODE_RANGE ) lv_slider_set_left_value( ui_SyncTimeAdjust, 0, LV_ANIM_OFF);
+lv_obj_set_width( ui_SyncTimeAdjust, 228);
+lv_obj_set_height( ui_SyncTimeAdjust, 28);
+lv_obj_set_x( ui_SyncTimeAdjust, 0 );
+lv_obj_set_y( ui_SyncTimeAdjust, 138 );
+lv_obj_set_align( ui_SyncTimeAdjust, LV_ALIGN_TOP_MID );
+lv_obj_set_style_radius(ui_SyncTimeAdjust, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_object_set_themeable_style_property(ui_SyncTimeAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_BG_Button);
+ui_object_set_themeable_style_property(ui_SyncTimeAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_BG_Button);
+lv_obj_set_style_border_width(ui_SyncTimeAdjust, 2, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_pad_left(ui_SyncTimeAdjust, 2, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_pad_right(ui_SyncTimeAdjust, 2, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_pad_top(ui_SyncTimeAdjust, 2, LV_PART_MAIN| LV_STATE_DEFAULT);
+lv_obj_set_style_pad_bottom(ui_SyncTimeAdjust, 2, LV_PART_MAIN| LV_STATE_DEFAULT);
+
+lv_obj_set_style_radius(ui_SyncTimeAdjust, 5, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+ui_object_set_themeable_style_property(ui_SyncTimeAdjust, LV_PART_INDICATOR| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_Container);
+ui_object_set_themeable_style_property(ui_SyncTimeAdjust, LV_PART_INDICATOR| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_Container);
+
+lv_obj_set_style_bg_color(ui_SyncTimeAdjust, lv_color_hex(0xFFFFFF), LV_PART_KNOB | LV_STATE_DEFAULT );
+lv_obj_set_style_bg_opa(ui_SyncTimeAdjust, 0, LV_PART_KNOB| LV_STATE_DEFAULT);
+
+ui_ImageSyncTimeAdjust = lv_img_create(ui_SyncTimeAdjust);
+lv_img_set_src(ui_ImageSyncTimeAdjust, &ui_img_199350223);
+lv_obj_set_width( ui_ImageSyncTimeAdjust, LV_SIZE_CONTENT);  /// 32
+lv_obj_set_height( ui_ImageSyncTimeAdjust, LV_SIZE_CONTENT);   /// 32
+lv_obj_set_x( ui_ImageSyncTimeAdjust, 5 );
+lv_obj_set_y( ui_ImageSyncTimeAdjust, 0 );
+lv_obj_set_align( ui_ImageSyncTimeAdjust, LV_ALIGN_LEFT_MID );
+lv_obj_add_flag( ui_ImageSyncTimeAdjust, LV_OBJ_FLAG_ADV_HITTEST );   /// Flags
+lv_obj_clear_flag( ui_ImageSyncTimeAdjust, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+lv_img_set_zoom(ui_ImageSyncTimeAdjust,200);
+
+ui_TextSyncTimeAdjust = lv_label_create(ui_SyncTimeAdjust);
+lv_obj_set_width( ui_TextSyncTimeAdjust, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_TextSyncTimeAdjust, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_TextSyncTimeAdjust, -10 );
+lv_obj_set_y( ui_TextSyncTimeAdjust, 0 );
+lv_obj_set_align( ui_TextSyncTimeAdjust, LV_ALIGN_RIGHT_MID );
+lv_label_set_text(ui_TextSyncTimeAdjust,"1小时");
+ui_object_set_themeable_style_property(ui_TextSyncTimeAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_Text_Switch);
+ui_object_set_themeable_style_property(ui_TextSyncTimeAdjust, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_Text_Switch);
+lv_obj_set_style_text_font(ui_TextSyncTimeAdjust, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
+
+ui_TextSyncTimeSet = lv_label_create(ui_SyncTimeAdjust);
+lv_obj_set_width( ui_TextSyncTimeSet, LV_SIZE_CONTENT);  /// 1
+lv_obj_set_height( ui_TextSyncTimeSet, LV_SIZE_CONTENT);   /// 1
+lv_obj_set_x( ui_TextSyncTimeSet, 40 );
+lv_obj_set_y( ui_TextSyncTimeSet, 0 );
+lv_obj_set_align( ui_TextSyncTimeSet, LV_ALIGN_LEFT_MID );
+lv_label_set_text(ui_TextSyncTimeSet,"SyncTime");
+ui_object_set_themeable_style_property(ui_TextSyncTimeSet, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_COLOR, _ui_theme_color_Text_Switch);
+ui_object_set_themeable_style_property(ui_TextSyncTimeSet, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_TEXT_OPA, _ui_theme_alpha_Text_Switch);
+lv_obj_set_style_text_font(ui_TextSyncTimeSet, &ui_font_ASCII20MONO, LV_PART_MAIN| LV_STATE_DEFAULT);
+
+ui_LEDControlDock = lv_obj_create(ui_AdvancedSettingDock);
+lv_obj_set_width( ui_LEDControlDock, 112);
+lv_obj_set_height( ui_LEDControlDock, 32);
+lv_obj_set_x( ui_LEDControlDock, 120 );
+lv_obj_set_y( ui_LEDControlDock, 32 );
+lv_obj_set_align( ui_LEDControlDock, LV_ALIGN_LEFT_MID );
+lv_obj_clear_flag( ui_LEDControlDock, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
+lv_obj_set_style_radius(ui_LEDControlDock, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_object_set_themeable_style_property(ui_LEDControlDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_BG_Button);
+ui_object_set_themeable_style_property(ui_LEDControlDock, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_BG_Button);
+lv_obj_set_style_border_width(ui_LEDControlDock, 0, LV_PART_MAIN| LV_STATE_DEFAULT);
+
+ui_LEDControl = lv_switch_create(ui_LEDControlDock);
+lv_obj_set_width( ui_LEDControl, 64);
+lv_obj_set_height( ui_LEDControl, 26);
+lv_obj_set_x( ui_LEDControl, 32 );
+lv_obj_set_y( ui_LEDControl, 0 );
+lv_obj_set_align( ui_LEDControl, LV_ALIGN_LEFT_MID );
+lv_obj_set_style_radius(ui_LEDControl, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
+ui_object_set_themeable_style_property(ui_LEDControl, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_Text_Switch);
+ui_object_set_themeable_style_property(ui_LEDControl, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_OPA, _ui_theme_alpha_Text_Switch);
+
+lv_obj_set_style_radius(ui_LEDControl, 5, LV_PART_INDICATOR| LV_STATE_DEFAULT);
+
+lv_obj_set_style_radius(ui_LEDControl, 5, LV_PART_KNOB| LV_STATE_DEFAULT);
+lv_obj_set_style_bg_color(ui_LEDControl, lv_color_hex(0x00FF00), LV_PART_KNOB | LV_STATE_DEFAULT );
+lv_obj_set_style_bg_opa(ui_LEDControl, 255, LV_PART_KNOB| LV_STATE_DEFAULT);
+
+ui_ImageLEDControl = lv_img_create(ui_LEDControlDock);
+lv_img_set_src(ui_ImageLEDControl, &ui_img_2108985116);
+lv_obj_set_width( ui_ImageLEDControl, LV_SIZE_CONTENT);  /// 32
+lv_obj_set_height( ui_ImageLEDControl, LV_SIZE_CONTENT);   /// 32
+lv_obj_set_x( ui_ImageLEDControl, -10 );
+lv_obj_set_y( ui_ImageLEDControl, 0 );
+lv_obj_set_align( ui_ImageLEDControl, LV_ALIGN_LEFT_MID );
+lv_obj_add_flag( ui_ImageLEDControl, LV_OBJ_FLAG_ADV_HITTEST );   /// Flags
+lv_obj_clear_flag( ui_ImageLEDControl, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 
 ui_AdvancedSettingBack = lv_btn_create(ui_AdvancedSettingScreen);
 lv_obj_set_width( ui_AdvancedSettingBack, 236);
@@ -284,6 +388,8 @@ lv_obj_add_event_cb(ui_USBA1Adjust, ui_event_USBA1Adjust, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_USBA2Adjust, ui_event_USBA2Adjust, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_ThermometerAdjust, ui_event_ThermometerAdjust, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_ThermometerControl, ui_event_ThermometerControl, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_SyncTimeAdjust, ui_event_SyncTimeAdjust, LV_EVENT_ALL, NULL);
+lv_obj_add_event_cb(ui_LEDControl, ui_event_LEDControl, LV_EVENT_ALL, NULL);
 lv_obj_add_event_cb(ui_AdvancedSettingBack, ui_event_AdvancedSettingBack, LV_EVENT_ALL, NULL);
 
 }

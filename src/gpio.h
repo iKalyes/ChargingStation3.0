@@ -22,4 +22,6 @@ void USBC_OFF();
 void FAN_ON();
 void FAN_OFF();
 
+void TempControl_Fan(float temperature);
+
 #endif

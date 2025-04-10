@@ -40,6 +40,8 @@ void lvgl_group_to_advancedsetting()
     lv_group_add_obj(group, ui_USBA2Adjust);
     lv_group_add_obj(group, ui_ThermometerAdjust);
     lv_group_add_obj(group, ui_ThermometerControl);
+    lv_group_add_obj(group, ui_LEDControl);
+    lv_group_add_obj(group, ui_SyncTimeAdjust);
     lv_group_add_obj(group, ui_AdvancedSettingBack);
 }
 

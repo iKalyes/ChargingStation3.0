@@ -11,7 +11,9 @@
 
 
 #include <Arduino.h>
+#include <esp_system.h>
 #include <variables.h>
+#include <gpio.h>
 #include <lvgl.h>
 #include "ui/ui.h"
 

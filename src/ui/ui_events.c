@@ -99,3 +99,13 @@ void TempControlOFF(lv_event_t * e)
 {
 	// Your code here
 }
+
+void LEDControlON(lv_event_t * e)
+{
+	// Your code here
+}
+
+void LEDControlOFF(lv_event_t * e)
+{
+	// Your code here
+}

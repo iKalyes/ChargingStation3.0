@@ -91,7 +91,7 @@ ui_AdvancedSetting = lv_btn_create(ui_SettingDock);
 lv_obj_set_width( ui_AdvancedSetting, 228);
 lv_obj_set_height( ui_AdvancedSetting, 28);
 lv_obj_set_x( ui_AdvancedSetting, 0 );
-lv_obj_set_y( ui_AdvancedSetting, 36 );
+lv_obj_set_y( ui_AdvancedSetting, 35 );
 lv_obj_set_align( ui_AdvancedSetting, LV_ALIGN_TOP_MID );
 lv_obj_add_flag( ui_AdvancedSetting, LV_OBJ_FLAG_SCROLL_ON_FOCUS );   /// Flags
 lv_obj_clear_flag( ui_AdvancedSetting, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
@@ -120,7 +120,7 @@ ui_PanelFanSwitch = lv_obj_create(ui_SettingDock);
 lv_obj_set_width( ui_PanelFanSwitch, 228);
 lv_obj_set_height( ui_PanelFanSwitch, 32);
 lv_obj_set_x( ui_PanelFanSwitch, 0 );
-lv_obj_set_y( ui_PanelFanSwitch, 68 );
+lv_obj_set_y( ui_PanelFanSwitch, 66 );
 lv_obj_set_align( ui_PanelFanSwitch, LV_ALIGN_TOP_MID );
 lv_obj_clear_flag( ui_PanelFanSwitch, LV_OBJ_FLAG_SCROLLABLE );    /// Flags
 lv_obj_set_style_radius(ui_PanelFanSwitch, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
@@ -168,7 +168,7 @@ if (lv_slider_get_mode(ui_SliderSleepTime)==LV_SLIDER_MODE_RANGE ) lv_slider_set
 lv_obj_set_width( ui_SliderSleepTime, 224);
 lv_obj_set_height( ui_SliderSleepTime, 28);
 lv_obj_set_x( ui_SliderSleepTime, 0 );
-lv_obj_set_y( ui_SliderSleepTime, 33 );
+lv_obj_set_y( ui_SliderSleepTime, 31 );
 lv_obj_set_align( ui_SliderSleepTime, LV_ALIGN_CENTER );
 lv_obj_set_style_radius(ui_SliderSleepTime, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 ui_object_set_themeable_style_property(ui_SliderSleepTime, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_BG_Button);
@@ -214,7 +214,7 @@ if (lv_slider_get_mode(ui_SliderBrightness)==LV_SLIDER_MODE_RANGE ) lv_slider_se
 lv_obj_set_width( ui_SliderBrightness, 224);
 lv_obj_set_height( ui_SliderBrightness, 28);
 lv_obj_set_x( ui_SliderBrightness, 0 );
-lv_obj_set_y( ui_SliderBrightness, 68 );
+lv_obj_set_y( ui_SliderBrightness, 66 );
 lv_obj_set_align( ui_SliderBrightness, LV_ALIGN_CENTER );
 lv_obj_set_style_radius(ui_SliderBrightness, 5, LV_PART_MAIN| LV_STATE_DEFAULT);
 ui_object_set_themeable_style_property(ui_SliderBrightness, LV_PART_MAIN| LV_STATE_DEFAULT, LV_STYLE_BG_COLOR, _ui_theme_color_BG_Button);

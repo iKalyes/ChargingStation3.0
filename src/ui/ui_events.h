@@ -21,6 +21,8 @@ void USBA2Adjust(lv_event_t * e);
 void TempAdjust(lv_event_t * e);
 void TempControlON(lv_event_t * e);
 void TempControlOFF(lv_event_t * e);
+void LEDControlON(lv_event_t * e);
+void LEDControlOFF(lv_event_t * e);
 void WIFIStart(lv_event_t * e);
 void WIFIResrt(lv_event_t * e);
 

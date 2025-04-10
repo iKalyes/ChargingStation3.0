@@ -36,11 +36,24 @@ void ina219_task(lv_timer_t *timer)
     int power_int = power_full / 10;
     int power_frac = power_full % 10;
     
-    lv_label_set_text_fmt(ui_Voltage, "%02d.%02dV", voltage_int, voltage_frac);
-    lv_label_set_text_fmt(ui_Current, "%02d.%02dA", current_int, current_frac);
-    lv_label_set_text_fmt(ui_Power, "%03d.%01dW", power_int, power_frac);
-
-    lv_label_set_text_fmt(ui_WVoltage, "%02d.%02dV", voltage_int, voltage_frac);
-    lv_label_set_text_fmt(ui_WCurrent, "%02d.%02dA", current_int, current_frac);
-    lv_label_set_text_fmt(ui_WPower, "%03d.%01dW", power_int, power_frac);
+    if(voltage_219 >= 0 && current_219 >= 0 && power_219 >= 0)
+    {
+      lv_label_set_text_fmt(ui_Voltage, "%02d.%02dV", voltage_int, voltage_frac);
+      lv_label_set_text_fmt(ui_Current, "%02d.%02dA", current_int, current_frac);
+      lv_label_set_text_fmt(ui_Power, "%03d.%01dW", power_int, power_frac);
+  
+      lv_label_set_text_fmt(ui_WVoltage, "%02d.%02dV", voltage_int, voltage_frac);
+      lv_label_set_text_fmt(ui_WCurrent, "%02d.%02dA", current_int, current_frac);
+      lv_label_set_text_fmt(ui_WPower, "%03d.%01dW", power_int, power_frac);
+    }
+    else
+    {
+      lv_label_set_text(ui_Voltage, "00.00V");
+      lv_label_set_text(ui_Current, "00.00A");
+      lv_label_set_text(ui_Power, "00.00W");
+  
+      lv_label_set_text(ui_WVoltage, "00.00V");
+      lv_label_set_text(ui_WCurrent, "00.00A");
+      lv_label_set_text(ui_WPower, "000.0W");
+    }
 }

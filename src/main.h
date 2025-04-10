@@ -15,5 +15,6 @@
 #include <gpio.h>
 #include <wifi_service.h>
 #include <main_service.h>
+#include <rgbled.h>
 
 #endif

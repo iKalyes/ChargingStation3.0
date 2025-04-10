@@ -74,3 +74,11 @@ def USBA1Adjust(event_struct):
 def USBA2Adjust(event_struct):
     return
 
+
+def LEDControlON(event_struct):
+    return
+
+
+def LEDControlOFF(event_struct):
+    return
+

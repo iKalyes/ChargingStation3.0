@@ -134,9 +134,18 @@ extern lv_obj_t *ui_ImageThermometer;
 extern lv_obj_t *ui_SysTempAdjust;
 extern lv_obj_t *ui_TextThermometer;
 extern lv_obj_t *ui_ThermometerControlDock;
-extern lv_obj_t *ui_TextThermometerControl;
 void ui_event_ThermometerControl( lv_event_t * e);
 extern lv_obj_t *ui_ThermometerControl;
+extern lv_obj_t *ui_ImageThermometer2;
+void ui_event_SyncTimeAdjust( lv_event_t * e);
+extern lv_obj_t *ui_SyncTimeAdjust;
+extern lv_obj_t *ui_ImageSyncTimeAdjust;
+extern lv_obj_t *ui_TextSyncTimeAdjust;
+extern lv_obj_t *ui_TextSyncTimeSet;
+extern lv_obj_t *ui_LEDControlDock;
+void ui_event_LEDControl( lv_event_t * e);
+extern lv_obj_t *ui_LEDControl;
+extern lv_obj_t *ui_ImageLEDControl;
 void ui_event_AdvancedSettingBack( lv_event_t * e);
 extern lv_obj_t *ui_AdvancedSettingBack;
 extern lv_obj_t *ui_TextADCBack;
@@ -213,6 +222,8 @@ LV_IMG_DECLARE( ui_img_2103744591);   // assets/material-symbols_mode-fan-outlin
 LV_IMG_DECLARE( ui_img_123890670);   // assets/icon-park-outline_sleep.png
 LV_IMG_DECLARE( ui_img_763584403);   // assets/iconamoon_mode-light.png
 LV_IMG_DECLARE( ui_img_f7_thermometer_png);   // assets/f7_thermometer.png
+LV_IMG_DECLARE( ui_img_199350223);   // assets/material-symbols_nest-clock-farsight-analog-outline-rounded.png
+LV_IMG_DECLARE( ui_img_2108985116);   // assets/material-symbols_wb-twilight-outline-rounded.png
 LV_IMG_DECLARE( ui_img_carbon_humidity_png);   // assets/carbon_humidity.png
 LV_IMG_DECLARE( ui_img_999_png);   // assets/999.png
 LV_IMG_DECLARE( ui_img_100_png);   // assets/100.png

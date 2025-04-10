@@ -3,10 +3,12 @@
 
 #include <Arduino.h>
 #include <lvgl.h>
-//ADC ADJUST//
+//ADVANCED SETTING//
 extern float voltage0_adc;
 extern float voltage1_adc;
 extern float temperature_adc;
+extern bool tempcontrol_fan;
+extern bool led_enabled; //全局变量控制所有LED灯的开关状态
 //SEETING SCREEN//
 extern uint8_t brightness;
 extern uint16_t sleep_time;

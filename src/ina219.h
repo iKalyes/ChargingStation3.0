@@ -11,5 +11,8 @@
 
 void ina219_init();
 void ina219_task(lv_timer_t *timer);
+float ina219_get_voltage();
+float ina219_get_current();
+float ina219_get_power();
 
 #endif

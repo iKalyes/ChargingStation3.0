@@ -19,5 +19,8 @@
 
 void adc_init();
 void adc_task(lv_timer_t *timer);
+float adc_get_voltage0();
+float adc_get_voltage1();
+float adc_get_temperature();
 
 #endif

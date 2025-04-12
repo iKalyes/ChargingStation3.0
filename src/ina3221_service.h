@@ -15,4 +15,8 @@ void ina3221_task(lv_timer_t *timer);
 void rgbled_task(lv_timer_t *timer);
 void ina3221_process(int channel, float voltage, float current, float power);
 
+float ina3221_get_voltage(int channel);
+float ina3221_get_current(int channel);
+float ina3221_get_power(int channel);
+
 #endif

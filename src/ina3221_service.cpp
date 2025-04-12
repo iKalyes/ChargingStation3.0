@@ -44,6 +44,33 @@ void rgbled_task(lv_timer_t *timer)
     RGB_Power(rgb_channel[2], power_channel[2]); // 设置LED颜色
 }
 
+float ina3221_get_voltage(int channel)
+{
+    if (channel < 1 || channel > 3)
+    {
+        return 0; // 错误的通道
+    }
+    return voltage_3221[channel - 1];
+}
+
+float ina3221_get_current(int channel)
+{
+    if (channel < 1 || channel > 3)
+    {
+        return 0; // 错误的通道
+    }
+    return current_3221[channel - 1];
+}
+
+float ina3221_get_power(int channel)
+{
+    if (channel < 1 || channel > 3)
+    {
+        return 0; // 错误的通道
+    }
+    return power_3221[channel - 1];
+}
+
 void ina3221_process(int channel, float voltage, float current, float power)
 {
 

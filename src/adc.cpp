@@ -75,3 +75,16 @@ void adc_task(lv_timer_t *timer)
     lv_label_set_text_fmt(ui_SysTemp, "%02d.%02d℃", temperature_int, temperature_frac);
     lv_label_set_text_fmt(ui_SysTempAdjust, "%02d.%02d℃", temperature_int, temperature_frac);
 }
+
+float adc_get_voltage0()
+{
+    return voltage0;
+}
+float adc_get_voltage1()
+{
+    return voltage1;
+}
+float adc_get_temperature()
+{
+    return temperature_average;
+}

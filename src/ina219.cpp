@@ -15,6 +15,19 @@ void ina219_init()
   ina219_timer = lv_timer_create(ina219_task, 100, NULL);
 }
 
+float ina219_get_voltage()
+{
+  return voltage_219;
+}
+float ina219_get_current()
+{
+  return current_219;
+}
+float ina219_get_power()
+{
+  return power_219;
+}
+
 void ina219_task(lv_timer_t *timer)
 {
     voltage_219 = ina219.getBusVoltage_V();

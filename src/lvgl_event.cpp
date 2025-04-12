@@ -6,11 +6,13 @@ void ui_event_USBCSwitch( lv_event_t * e) {
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       USBCPowerON( e );
       USBC_ON();
+      setSwitch("typeC", true);
       save_USBC_setting();
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       USBCPowerOFF( e );
       USBC_OFF();
+      setSwitch("typeC", false);
       save_USBC_setting();
 }
 }
@@ -21,11 +23,13 @@ void ui_event_USBASwitch( lv_event_t * e) {
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       USBAPowerON( e );
       USBA_ON();
+      setSwitch("usbA", true);
       save_USBA_setting();
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       USBAPowerOFF( e );
       USBA_OFF();
+      setSwitch("usbA", false);
       save_USBA_setting();
 }
 }
@@ -73,10 +77,12 @@ void ui_event_FanSwitch( lv_event_t * e) {
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       FanSwitchON( e );
       FAN_ON();
+      setSwitch("fan", true);
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       FanSwitchOFF( e );
       FAN_OFF();
+      setSwitch("fan", false);
 }
 }
 
@@ -143,10 +149,12 @@ void ui_event_ThermometerControl( lv_event_t * e) {
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       TempControlON( e );
       tempcontrol_fan = true;
+      setSwitch("fanTemp", true);
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       TempControlOFF( e );
       tempcontrol_fan = false;
+      setSwitch("fanTemp", false);
 }
 }
 
@@ -156,10 +164,12 @@ void ui_event_LEDControl( lv_event_t * e) {
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       LEDControlON( e );
       led_enabled = true;
+      setSwitch("chargeLed", true);
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
       LEDControlOFF( e );
       led_enabled = false;
+      setSwitch("chargeLed", false);
 }
 }
 

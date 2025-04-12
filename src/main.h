@@ -1,6 +1,8 @@
 #ifndef _MAIN_H
 #define _MAIN_H
 
+#define ENABLE_DEBUG 1
+
 #include <Arduino.h>
 
 #include <display.h>
@@ -16,5 +18,6 @@
 #include <wifi_service.h>
 #include <main_service.h>
 #include <rgbled.h>
+#include <web_server.h>
 
 #endif

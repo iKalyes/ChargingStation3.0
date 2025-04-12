@@ -57,15 +57,61 @@ const char index_html[] PROGMEM = R"rawliteral(
           align-items: center;        /* 垂直居中 */
           padding: 0 15px;            /* 左右内边距 */
         }
-        .time-display {
+        .nav-right {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
+        .dark-mode-button {
+          background: none;
+          border: none;
           color: white;
-          font-size: 1.8rem;          /* 将时间字体大小调整为与标题相同 */
-          font-weight: bold;
-          background-color: #2c3e50;  /* 使用更深的背景颜色 */
-          padding: 5px 12px;          /* 增加内边距使边框更明显 */
-          border-radius: 6px;         /* 增加圆角半径 */
-          box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 添加阴影效果增强立体感 */
-          border: 1px solid rgba(255,255,255,0.1); /* 添加微弱的边框 */
+          font-size: 1.2rem;
+          cursor: pointer;
+          padding: 8px;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(255,255,255,0.1);
+          transition: background-color 0.3s;
+        }
+        .dark-mode-button:hover {
+          background-color: rgba(255,255,255,0.2);
+        }
+        /* 黑暗模式样式 */
+        body.dark-mode {
+          background-color: #121212;
+          color: #e0e0e0;
+        }
+        body.dark-mode .chart-group,
+        body.dark-mode .main-power-group,
+        body.dark-mode .control-panel {
+          background-color: #1e1e1e;
+          border-color: #333;
+        }
+        body.dark-mode .card,
+        body.dark-mode .horizontal-card {
+          background-color: #2d2d2d;
+          box-shadow: 1px 1px 6px 0px rgba(0,0,0,.5);
+        }
+        body.dark-mode h2 {
+          color: #e0e0e0;
+        }
+        body.dark-mode .value-display {
+          background-color: #3d3d3d;
+          color: #4db8ff;
+        }
+        body.dark-mode .max-value {
+          color: #aaa;
+        }
+        body.dark-mode .slider {
+          background-color: #555;
+        }
+        body.dark-mode .switch-label {
+          color: #ffffff; /* 黑暗模式下开关标签文字改为白色 */
         }
         body {
           margin: 0;
@@ -224,12 +270,28 @@ const char index_html[] PROGMEM = R"rawliteral(
         .slider.round:before {
           border-radius: 50%;
         }
+        .time-display {
+          font-size: 1.8rem; /* 与标题h1相同的字体大小 */
+          color: white;
+          background-color: rgba(255,255,255,0.1); /* 半透明背景 */
+          padding: 5px 15px;
+          border-radius: 8px;
+          font-weight: 500;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+          min-width: 120px; /* 保证宽度足够 */
+          text-align: center;
+        }
       </style>
     </head>
     <body>
       <div class="topnav">
         <h1>多协议桌面充电站</h1>
-        <div id="currentTime" class="time-display">00:00:00</div>
+        <div class="nav-right">
+          <button id="darkModeToggle" class="dark-mode-button">
+            <i class="fas fa-moon"></i>
+          </button>
+          <div id="currentTime" class="time-display">00:00:00</div>
+        </div>
       </div>
       <div class="content">
         <!-- 主电源输入图表组 -->
@@ -743,7 +805,7 @@ const char index_html[] PROGMEM = R"rawliteral(
           let mainPowerData = data["mainPower"];
           if (mainPowerData) {
             // 更新电压值显示和图表
-            document.getElementById("voltageValueMain").textContent = mainPowerData.voltage.toFixed(2) + " V";
+            document.getElementById("voltageValueMain").textContent = mainPowerData.voltage.toFixed(3) + " V";
             mainPowerGroup.voltage.data.datasets[0].data.shift();
             mainPowerGroup.voltage.data.datasets[0].data.push(mainPowerData.voltage);
             mainPowerGroup.voltage.data.labels.shift();
@@ -759,7 +821,7 @@ const char index_html[] PROGMEM = R"rawliteral(
             mainPowerGroup.current.chart.update();
             
             // 更新功率值显示和图表
-            document.getElementById("powerValueMain").textContent = mainPowerData.power.toFixed(1) + " W";
+            document.getElementById("powerValueMain").textContent = mainPowerData.power.toFixed(2) + " W";
             mainPowerGroup.power.data.datasets[0].data.shift();
             mainPowerGroup.power.data.datasets[0].data.push(mainPowerData.power);
             mainPowerGroup.power.data.labels.shift();
@@ -773,7 +835,7 @@ const char index_html[] PROGMEM = R"rawliteral(
             
             if (groupData) {
               // 更新电压值显示和图表
-              document.getElementById(`voltageValue${group}`).textContent = groupData.voltage.toFixed(2) + " V";
+              document.getElementById(`voltageValue${group}`).textContent = groupData.voltage.toFixed(3) + " V";
               chartGroups[group].voltage.data.datasets[0].data.shift();
               chartGroups[group].voltage.data.datasets[0].data.push(groupData.voltage);
               chartGroups[group].voltage.data.labels.shift();
@@ -789,7 +851,7 @@ const char index_html[] PROGMEM = R"rawliteral(
               chartGroups[group].current.chart.update();
               
               // 更新功率值显示和图表
-              document.getElementById(`powerValue${group}`).textContent = groupData.power.toFixed(1) + " W";
+              document.getElementById(`powerValue${group}`).textContent = groupData.power.toFixed(2) + " W";
               chartGroups[group].power.data.datasets[0].data.shift();
               chartGroups[group].power.data.datasets[0].data.push(groupData.power);
               chartGroups[group].power.data.labels.shift();
@@ -918,6 +980,57 @@ const char index_html[] PROGMEM = R"rawliteral(
             }
           );
         }
+
+        // 切换黑暗模式
+        function toggleDarkMode() {
+          const body = document.body;
+          const isDarkMode = body.classList.toggle('dark-mode');
+          const darkModeButton = document.getElementById('darkModeToggle');
+          
+          // 更新图标
+          if (isDarkMode) {
+            darkModeButton.innerHTML = '<i class="fas fa-sun"></i>';
+          } else {
+            darkModeButton.innerHTML = '<i class="fas fa-moon"></i>';
+          }
+          
+          // 保存偏好设置
+          localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+          
+          // 更新图表主题颜色
+          updateChartsTheme(isDarkMode);
+        }
+
+        // 更新图表主题颜色
+        function updateChartsTheme(isDarkMode) {
+          const gridColor = isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+          const textColor = isDarkMode ? '#e0e0e0' : '#666';
+          
+          // 更新所有图表的主题
+          const charts = [
+            mainPowerGroup.voltage.chart, mainPowerGroup.current.chart, mainPowerGroup.power.chart,
+            ...Object.values(chartGroups).flatMap(group => [group.voltage.chart, group.current.chart, group.power.chart]),
+            usbA4Chart.voltage.chart, usbA5Chart.voltage.chart, tempChart.chart
+          ];
+          
+          charts.forEach(chart => {
+            if (chart) {
+              chart.options.scales.y.grid.color = gridColor;
+              chart.options.scales.y.ticks.color = textColor;
+              chart.update();
+            }
+          });
+        }
+
+        // 初始化主题
+        function initTheme() {
+          const savedTheme = localStorage.getItem('darkMode');
+          if (savedTheme === 'enabled') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('darkModeToggle').innerHTML = '<i class="fas fa-sun"></i>';
+            updateChartsTheme(true);
+          }
+        }
     
         // 在页面加载后，初始化开关事件监听器
         function initSwitches() {
@@ -992,6 +1105,12 @@ const char index_html[] PROGMEM = R"rawliteral(
           // 初始化时间并设置定时更新
           updateClock();
           setInterval(updateClock, 1000);
+
+          // 初始化主题
+          initTheme();
+  
+          // 添加黑暗模式切换按钮事件
+          document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
           
           // 图表初始化
           initCharts();
@@ -1001,6 +1120,12 @@ const char index_html[] PROGMEM = R"rawliteral(
           
           // WebSocket初始化
           initWebSocket();
+
+          // 初始化主题
+          initTheme();
+
+          // 黑暗模式按钮事件
+          document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
         });
       </script>
     </body>

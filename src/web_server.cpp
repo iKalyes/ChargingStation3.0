@@ -12,7 +12,39 @@ const char index_html[] PROGMEM = R"rawliteral(
     <head>
       <meta charset="UTF-8">
       <title>多协议桌面充电站</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1" id="viewport-meta">
+      <script>
+      // 强制手机使用桌面视图
+      (function() {
+        // 检测是否为移动设备
+        function isMobileDevice() {
+          return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+            || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+        }
+        
+        // 如果是移动设备，修改viewport
+        if (isMobileDevice()) {
+          var metaViewport = document.getElementById('viewport-meta');
+          // 强制使用固定宽度，禁用缩放
+          metaViewport.setAttribute('content', 'width=720, initial-scale=0.5, maximum-scale=0.5, user-scalable=0');
+          
+          // 添加额外CSS以解决触摸设备上的布局问题
+          var style = document.createElement('style');
+          style.innerHTML = `
+            body { min-width: 720px; }
+            .chart-group { 
+              min-width: calc(33.33% - 10px); 
+            }
+            /* 启用触摸滚动 */
+            html, body {
+              overflow-x: auto;
+              -webkit-overflow-scrolling: touch;
+            }
+          `;
+          document.head.appendChild(style);
+        }
+      })();
+      </script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <style>

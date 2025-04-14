@@ -82,3 +82,35 @@ def LEDControlON(event_struct):
 def LEDControlOFF(event_struct):
     return
 
+
+def USBC32ON(event_struct):
+    return
+
+
+def USBC32OFF(event_struct):
+    return
+
+
+def USBC32PON(event_struct):
+    return
+
+
+def USBC32POFF(event_struct):
+    return
+
+
+def USBC1PON(event_struct):
+    return
+
+
+def USBC1POFF(event_struct):
+    return
+
+
+def USBA45ON(event_struct):
+    return
+
+
+def USBA45OFF(event_struct):
+    return
+

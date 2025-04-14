@@ -91,6 +91,7 @@ SET(SOURCES screens/ui_MainScreen.c
     fonts/ui_font_ASCII40MONO.c
     fonts/ui_font_ASCII56MONO.c
     fonts/ui_font_CHN.c
-    fonts/ui_font_CHN18.c)
+    fonts/ui_font_CHN18.c
+    fonts/ui_font_ASCII16MONO.c)
 
 add_library(ui ${SOURCES})

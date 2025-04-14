@@ -8,7 +8,8 @@ void lvgl_group_init()
     lv_group_set_default(group);
     lv_indev_set_group(get_keypad_indev(), group);
 
-    lv_group_add_obj(group, ui_USBCSwitch);
+    lv_group_add_obj(group, ui_USBC32Switch);
+    lv_group_add_obj(group, ui_USBC1Switch);
     lv_group_add_obj(group, ui_USBASwitch);
     lv_group_add_obj(group, ui_Weather);
     lv_group_add_obj(group, ui_Setting);
@@ -75,7 +76,8 @@ void lvgl_group_to_main()
     // 等待输入设备释放后再添加对象到组
     lv_indev_wait_release(get_keypad_indev());
     
-    lv_group_add_obj(group, ui_USBCSwitch);
+    lv_group_add_obj(group, ui_USBC32Switch);
+    lv_group_add_obj(group, ui_USBC1Switch);
     lv_group_add_obj(group, ui_USBASwitch);
     lv_group_add_obj(group, ui_Weather);
     lv_group_add_obj(group, ui_Setting);

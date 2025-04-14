@@ -31,12 +31,18 @@ extern "C" {
 void ui_MainScreen_screen_init(void);
 extern lv_obj_t *ui_MainScreen;
 extern lv_obj_t *ui_MainHeader;
-extern lv_obj_t *ui_HeaderUSBC;
-extern lv_obj_t *ui_HeaderUSBA;
-void ui_event_USBCSwitch( lv_event_t * e);
-extern lv_obj_t *ui_USBCSwitch;
+void ui_event_USBC32Switch( lv_event_t * e);
+extern lv_obj_t *ui_USBC32Switch;
+extern lv_obj_t *ui_HeaderUSBC32;
+extern lv_obj_t *ui_TextC32;
+void ui_event_USBC1Switch( lv_event_t * e);
+extern lv_obj_t *ui_USBC1Switch;
+extern lv_obj_t *ui_HeaderUSBC1;
+extern lv_obj_t *ui_TextC1;
 void ui_event_USBASwitch( lv_event_t * e);
 extern lv_obj_t *ui_USBASwitch;
+extern lv_obj_t *ui_HeaderUSBA;
+extern lv_obj_t *ui_TextA45;
 extern lv_obj_t *ui_ImageWiFi;
 extern lv_obj_t *ui_SysTempDock;
 extern lv_obj_t *ui_TextSysTemp;
@@ -297,6 +303,7 @@ LV_FONT_DECLARE( ui_font_ASCII40MONO);
 LV_FONT_DECLARE( ui_font_ASCII56MONO);
 LV_FONT_DECLARE( ui_font_CHN);
 LV_FONT_DECLARE( ui_font_CHN18);
+LV_FONT_DECLARE( ui_font_ASCII16MONO);
 
 // UI INIT
 void ui_init(void);

@@ -355,22 +355,28 @@ const char index_html[] PROGMEM = R"rawliteral(
         <div class="control-panel">
           <h3>系统控制</h3>
           <div class="switches-container">
-            <!-- 第一行：Type-C输出在左，USB-A输出在右和第二行风扇温控对齐 -->
+            <!-- 第一行：Type-C 3&2输出，Type-C 1输出，USB-A输出 -->
             <div class="switch-row">
               <div class="switch-item">
                 <label class="switch">
-                  <input type="checkbox" id="typeC-switch" checked>
+                  <input type="checkbox" id="typeC32-switch" checked>
                   <span class="slider round"></span>
                 </label>
-                <span class="switch-label">Type-C输出</span>
+                <span class="switch-label">Type-C输出[3][2]</span>
               </div>
-              <div class="switch-item empty"></div>
+              <div class="switch-item">
+                <label class="switch">
+                  <input type="checkbox" id="typeC1-switch" checked>
+                  <span class="slider round"></span>
+                </label>
+                <span class="switch-label">Type-C输出[1]</span>
+              </div>
               <div class="switch-item">
                 <label class="switch">
                   <input type="checkbox" id="usbA-switch" checked>
                   <span class="slider round"></span>
                 </label>
-                <span class="switch-label">USB-A输出</span>
+                <span class="switch-label">USB-A输出[4][5]</span>
               </div>
             </div>
             
@@ -381,21 +387,21 @@ const char index_html[] PROGMEM = R"rawliteral(
                   <input type="checkbox" id="fan-switch" checked>
                   <span class="slider round"></span>
                 </label>
-                <span class="switch-label">散热风扇</span>
+                <span class="switch-label">散热风扇开关</span>
               </div>
               <div class="switch-item">
                 <label class="switch">
                   <input type="checkbox" id="fan-temp-control" checked>
                   <span class="slider round"></span>
                 </label>
-                <span class="switch-label">风扇温控</span>
+                <span class="switch-label">风扇温控开关</span>
               </div>
               <div class="switch-item">
                 <label class="switch">
                   <input type="checkbox" id="charge-led" checked>
                   <span class="slider round"></span>
                 </label>
-                <span class="switch-label">充电指示灯</span>
+                <span class="switch-label">充电指示灯开关</span>
               </div>
             </div>
           </div>
@@ -403,7 +409,7 @@ const char index_html[] PROGMEM = R"rawliteral(
         
         <!-- 第一组图表 -->
         <div class="chart-group">
-          <h3>Type-C OUT3</h3>
+          <h3>Type-C 输出[3]</h3>
           <div class="card">
             <h2>电压[V]<span id="voltageValue1" class="value-display">0.00 V</span></h2>
             <div class="chart-container">
@@ -426,7 +432,7 @@ const char index_html[] PROGMEM = R"rawliteral(
         
         <!-- 第二组图表 -->
         <div class="chart-group">
-          <h3>Type-C OUT2</h3>
+          <h3>Type-C 输出[2]</h3>
           <div class="card">
             <h2>电压[V]<span id="voltageValue2" class="value-display">0.00 V</span></h2>
             <div class="chart-container">
@@ -449,7 +455,7 @@ const char index_html[] PROGMEM = R"rawliteral(
         
         <!-- 第三组图表 -->
         <div class="chart-group">
-          <h3>Type-C OUT1</h3>
+          <h3>Type-C 输出[1]</h3>
           <div class="card">
             <h2>电压[W]<span id="voltageValue3" class="value-display">0.00 V</span></h2>
             <div class="chart-container">
@@ -472,7 +478,7 @@ const char index_html[] PROGMEM = R"rawliteral(
     
         <!-- USB-A OUT4 图表 -->
         <div class="chart-group">
-          <h3>USB-A OUT4</h3>
+          <h3>USB-A 输出[4]</h3>
           <div class="card">
             <h2>电压[V]<span id="voltageValue4" class="value-display">0.00 V</span></h2>
             <div class="chart-container">
@@ -483,7 +489,7 @@ const char index_html[] PROGMEM = R"rawliteral(
     
         <!-- USB-A OUT5 图表 -->
         <div class="chart-group">
-          <h3>USB-A OUT5</h3>
+          <h3>USB-A 输出[5]</h3>
           <div class="card">
             <h2>电压[V]<span id="voltageValue5" class="value-display">0.00 V</span></h2>
             <div class="chart-container">
@@ -926,6 +932,31 @@ const char index_html[] PROGMEM = R"rawliteral(
           }
         }
     
+        // 修改updateSwitchStates函数
+        function updateSwitchStates(data) {
+          if (data.switches) {
+            // 更新开关UI状态
+            if (data.switches.typeC32 !== undefined) {
+              document.getElementById('typeC32-switch').checked = data.switches.typeC32;
+            }
+            if (data.switches.typeC1 !== undefined) {
+              document.getElementById('typeC1-switch').checked = data.switches.typeC1;
+            }
+            if (data.switches.usbA !== undefined) {
+              document.getElementById('usbA-switch').checked = data.switches.usbA;
+            }
+            if (data.switches.fan !== undefined) {
+              document.getElementById('fan-switch').checked = data.switches.fan;
+            }
+            if (data.switches.fanTemp !== undefined) {
+              document.getElementById('fan-temp-control').checked = data.switches.fanTemp;
+            }
+            if (data.switches.chargeLed !== undefined) {
+              document.getElementById('charge-led').checked = data.switches.chargeLed;
+            }
+          }
+        }
+
         // 初始化所有图表
         function initCharts() {
           // 初始化主电源输入图表
@@ -1067,15 +1098,20 @@ const char index_html[] PROGMEM = R"rawliteral(
         // 在页面加载后，初始化开关事件监听器
         function initSwitches() {
           // 获取所有开关元素
-          const typeCSwitch = document.getElementById('typeC-switch');
+          const typeC32Switch = document.getElementById('typeC32-switch');
+          const typeC1Switch = document.getElementById('typeC1-switch');
           const usbASwitch = document.getElementById('usbA-switch');
           const fanSwitch = document.getElementById('fan-switch');
           const fanTempControl = document.getElementById('fan-temp-control');
           const chargeLed = document.getElementById('charge-led');
           
           // 添加事件监听器
-          typeCSwitch.addEventListener('change', function() {
-            sendSwitchState('typeC', this.checked);
+          typeC32Switch.addEventListener('change', function() {
+            sendSwitchState('typeC32', this.checked);
+          });
+          
+          typeC1Switch.addEventListener('change', function() {
+            sendSwitchState('typeC1', this.checked);
           });
           
           usbASwitch.addEventListener('change', function() {
@@ -1107,28 +1143,6 @@ const char index_html[] PROGMEM = R"rawliteral(
             console.log(`发送开关状态: ${switchType} = ${isOn}`);
           } else {
             console.log('WebSocket未连接，无法发送开关状态');
-          }
-        }
-    
-        // 接收开关状态更新
-        function updateSwitchStates(data) {
-          if (data.switches) {
-            // 更新开关UI状态
-            if (data.switches.typeC !== undefined) {
-              document.getElementById('typeC-switch').checked = data.switches.typeC;
-            }
-            if (data.switches.usbA !== undefined) {
-              document.getElementById('usbA-switch').checked = data.switches.usbA;
-            }
-            if (data.switches.fan !== undefined) {
-              document.getElementById('fan-switch').checked = data.switches.fan;
-            }
-            if (data.switches.fanTemp !== undefined) {
-              document.getElementById('fan-temp-control').checked = data.switches.fanTemp;
-            }
-            if (data.switches.chargeLed !== undefined) {
-              document.getElementById('charge-led').checked = data.switches.chargeLed;
-            }
           }
         }
     
@@ -1165,21 +1179,40 @@ const char index_html[] PROGMEM = R"rawliteral(
     )rawliteral";
     
     // ===== 开关控制函数 =====
-    // Type-C输出控制
-    void setTypeCOutput(bool enabled) {
-      USBC_Switch = enabled;
-      Serial.print("Type-C输出: ");
+    // Type-C32输出控制
+    void setTypeC32Output(bool enabled) {
+      USBC32_Switch = enabled;
+      Serial.print("Type-C32输出: ");
       Serial.println(enabled ? "开启" : "关闭");
       if(enabled == true)
       {
-        USBC_ON();
-        lv_obj_add_state(ui_USBCSwitch, LV_STATE_CHECKED);
+        USBC32_ON();
+        lv_obj_add_state(ui_USBC32Switch, LV_STATE_CHECKED);
         save_USBC_setting();
       }
       else
       {
-        USBC_OFF();
-        lv_obj_clear_state(ui_USBCSwitch, LV_STATE_CHECKED);
+        USBC32_OFF();
+        lv_obj_clear_state(ui_USBC32Switch, LV_STATE_CHECKED);
+        save_USBC_setting();
+      }
+    }
+
+    // Type-C1输出控制
+    void setTypeC1Output(bool enabled) {
+      USBC1_Switch = enabled;
+      Serial.print("Type-C1输出: ");
+      Serial.println(enabled ? "开启" : "关闭");
+      if(enabled == true)
+      {
+        USBC1_ON();
+        lv_obj_add_state(ui_USBC1Switch, LV_STATE_CHECKED);
+        save_USBC_setting();
+      }
+      else
+      {
+        USBC1_OFF();
+        lv_obj_clear_state(ui_USBC1Switch, LV_STATE_CHECKED);
         save_USBC_setting();
       }
     }
@@ -1266,7 +1299,8 @@ const char index_html[] PROGMEM = R"rawliteral(
       JsonDocument doc;
       
       JsonObject switches = doc["switches"].to<JsonObject>();
-      switches["typeC"] = USBC_Switch;
+      switches["typeC32"] = USBC32_Switch;
+      switches["typeC1"] = USBC1_Switch;
       switches["usbA"] = USBA_Switch;
       switches["fan"] = fan_switch;
       switches["fanTemp"] = tempcontrol_fan;
@@ -1291,9 +1325,12 @@ const char index_html[] PROGMEM = R"rawliteral(
     
     // 切换指定开关的状态（开->关 或 关->开）
     void toggleSwitch(const String& switchType) {
-      if (switchType == "typeC") {
-        setTypeCOutput(!USBC_Switch);
+      if (switchType == "typeC32") {
+        setTypeC32Output(!USBC32_Switch);
       } 
+      else if( switchType == "typeC1") {
+        setTypeC1Output(!USBC1_Switch);
+      }
       else if (switchType == "usbA") {
         setUSBAOutput(!USBA_Switch);
       } 
@@ -1313,9 +1350,12 @@ const char index_html[] PROGMEM = R"rawliteral(
     
     // 直接设置指定开关为特定状态
     void setSwitch(const String& switchType, bool state) {
-      if (switchType == "typeC") {
-        setTypeCOutput(state);
+      if (switchType == "typeC32") {
+        setTypeC32Output(state);
       } 
+      else if (switchType == "typeC1") {
+        setTypeC1Output(state);
+      }
       else if (switchType == "usbA") {
         setUSBAOutput(state);
       } 
@@ -1345,7 +1385,8 @@ const char index_html[] PROGMEM = R"rawliteral(
     
     // 同时设置所有开关的状态
     void setAllSwitches(bool state) {
-      setTypeCOutput(state);
+      setTypeC32Output(state);
+      setTypeC1Output(state);
       setUSBAOutput(state);
       setFan(state);
       setFanTempControl(state);
@@ -1374,9 +1415,12 @@ const char index_html[] PROGMEM = R"rawliteral(
             bool switchState = doc["state"].as<bool>();
             
             // 根据开关类型执行对应操作
-            if (switchType == "typeC") {
-              setTypeCOutput(switchState);
+            if (switchType == "typeC32") {
+              setTypeC32Output(switchState);
             } 
+            else if (switchType == "typeC1") {
+              setTypeC1Output(switchState);
+            }
             else if (switchType == "usbA") {
               setUSBAOutput(switchState);
             } 

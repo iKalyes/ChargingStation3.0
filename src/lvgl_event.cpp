@@ -1,19 +1,36 @@
 #include <lvgl_event.h>
 
-void ui_event_USBCSwitch( lv_event_t * e) {
+void ui_event_USBC32Switch( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
-      USBCPowerON( e );
-      USBC_ON();
-      setSwitch("typeC", true);
+      USBC32PON( e );
+      USBC32_ON();
+      setSwitch("typeC32", true);
       save_USBC_setting();
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
-      USBCPowerOFF( e );
-      USBC_OFF();
-      setSwitch("typeC", false);
+      USBC32POFF( e );
+      USBC32_OFF();
+      setSwitch("typeC32", false);
       save_USBC_setting();
+}
+}
+
+void ui_event_USBC1Switch( lv_event_t * e) {
+    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      USBC1PON( e );
+      USBC1_ON();
+      setSwitch("typeC1", true);
+      save_USBC_setting();
+}
+if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
+      USBC1POFF( e );
+      USBC1_OFF();
+      setSwitch("typeC31", false);
+      save_USBC_setting();     
 }
 }
 
@@ -21,13 +38,13 @@ void ui_event_USBASwitch( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
 
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
-      USBAPowerON( e );
+      USBA45ON( e );
       USBA_ON();
       setSwitch("usbA", true);
       save_USBA_setting();
 }
 if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_CHECKED)  ) {
-      USBAPowerOFF( e );
+      USBA45OFF( e );
       USBA_OFF();
       setSwitch("usbA", false);
       save_USBA_setting();

@@ -61,7 +61,8 @@ void display_task()
 
 void style_reset()
 {
-    lv_obj_set_style_outline_color(ui_USBCSwitch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBC32Switch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBC1Switch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_USBASwitch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_Setting, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_Weather, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
@@ -113,15 +114,25 @@ void setting_reset()
 {
     lv_label_set_text_fmt(ui_FreeSpace, "ROM:%dB", free_space);
 
-    if(USBC_Switch == true)
+    if(USBC32_Switch == true)
     {
-        lv_obj_add_state(ui_USBCSwitch, LV_STATE_CHECKED);
-        USBC_ON();
+        lv_obj_add_state(ui_USBC32Switch, LV_STATE_CHECKED);
+        USBC32_ON();
     }
     else
     {
-        lv_obj_clear_state(ui_USBCSwitch, LV_STATE_CHECKED);
-        USBC_OFF();
+        lv_obj_clear_state(ui_USBC32Switch, LV_STATE_CHECKED);
+        USBC32_OFF();
+    }
+    if(USBC1_Switch == true)
+    {
+        lv_obj_add_state(ui_USBC1Switch, LV_STATE_CHECKED);
+        USBC1_ON();
+    }
+    else
+    {
+        lv_obj_clear_state(ui_USBC1Switch, LV_STATE_CHECKED);
+        USBC1_OFF();
     }
     if(USBA_Switch == true)
     {

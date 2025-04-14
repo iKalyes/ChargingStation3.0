@@ -17,7 +17,8 @@
 #include <gpio.h>
 #include <flash.h>
 
-void setTypeCOutput(bool enabled);
+void setTypeC32Output(bool enabled);
+void setTypeC1Output(bool enabled);
 void setUSBAOutput(bool enabled);
 void setFan(bool enabled);
 void setFanTempControl(bool enabled);

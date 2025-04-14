@@ -21,8 +21,6 @@ void save_setting()
     flash.putUInt("brightness", brightness);
     flash.putUInt("sleep_time", sleep_time);
     flash.putBool("fan_switch", fan_switch);
-    flash.putBool("USBC_Switch", USBC_Switch);
-    flash.putBool("USBA_Switch", USBA_Switch);
     flash.end();
 }
 
@@ -32,7 +30,8 @@ void load_setting()
     brightness = flash.getUInt("brightness", 128);
     sleep_time = flash.getUInt("sleep_time", 0);
     fan_switch = flash.getBool("fan_switch", false);
-    USBC_Switch = flash.getBool("USBC_Switch", false);
+    USBC32_Switch = flash.getBool("USBC32_Switch", false);
+    USBC1_Switch = flash.getBool("USBC1_Switch", false);
     USBA_Switch = flash.getBool("USBA_Switch", false);
     voltage0_adc = flash.getFloat("voltage0_adc", 10.85f);
     voltage1_adc = flash.getFloat("voltage1_adc", 10.85f);
@@ -52,7 +51,8 @@ void save_USBA_setting()
 void save_USBC_setting()
 {
     flash.begin("setting");
-    flash.putBool("USBC_Switch", USBC_Switch);
+    flash.putBool("USBC32_Switch", USBC32_Switch);
+    flash.putBool("USBC1_Switch", USBC1_Switch);
     flash.end();
 }
 

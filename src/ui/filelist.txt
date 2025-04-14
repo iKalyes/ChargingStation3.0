@@ -92,3 +92,4 @@ fonts/ui_font_ASCII40MONO.c
 fonts/ui_font_ASCII56MONO.c
 fonts/ui_font_CHN.c
 fonts/ui_font_CHN18.c
+fonts/ui_font_ASCII16MONO.c

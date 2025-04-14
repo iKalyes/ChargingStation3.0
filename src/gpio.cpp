@@ -2,11 +2,11 @@
 
 void gpio_init()
 {
-      pinMode(TYPE_CA, OUTPUT);
-      pinMode(TYPE_CB, OUTPUT);
+      pinMode(TYPE_C32, OUTPUT);
+      pinMode(TYPE_C1, OUTPUT);
       pinMode(TYPE_A, OUTPUT);
-      digitalWrite(TYPE_CA, LOW);
-      digitalWrite(TYPE_CB, LOW);
+      digitalWrite(TYPE_C32, LOW);
+      digitalWrite(TYPE_C1, LOW);
       digitalWrite(TYPE_A, LOW);
 
       ledcSetup(1, 5000, 8);
@@ -26,18 +26,28 @@ void USBA_OFF()
     digitalWrite(TYPE_A, LOW);
 }
 
-void USBC_ON()
+void USBC32_ON()
 {
-    USBC_Switch = true;
-    digitalWrite(TYPE_CA, HIGH);
-    digitalWrite(TYPE_CB, HIGH);
+    USBC32_Switch = true;
+    digitalWrite(TYPE_C32, HIGH);
 }
 
-void USBC_OFF()
+void USBC32_OFF()
 {
-    USBC_Switch = false;
-    digitalWrite(TYPE_CA, LOW);
-    digitalWrite(TYPE_CB, LOW);
+    USBC32_Switch = false;
+    digitalWrite(TYPE_C32, LOW);
+}
+
+void USBC1_ON()
+{
+    USBC1_Switch = true;
+    digitalWrite(TYPE_C1, HIGH);
+}
+
+void USBC1_OFF()
+{
+    USBC1_Switch = false;
+    digitalWrite(TYPE_C1, LOW);
 }
 
 void FAN_ON()

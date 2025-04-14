@@ -13,7 +13,8 @@ uint16_t sleep_time = 0;
 bool fan_switch = false;
 uint8_t free_space;
 //MAIN SCREEN//
-bool USBC_Switch = false;
+bool USBC32_Switch = false;
+bool USBC1_Switch = false;
 bool USBA_Switch = false;
 //FOR WEB AND WEATHER//
 uint16_t UpdateWeater_Time = 10; //10分钟更新

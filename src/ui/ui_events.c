@@ -109,3 +109,33 @@ void LEDControlOFF(lv_event_t * e)
 {
 	// Your code here
 }
+
+void USBC32PON(lv_event_t * e)
+{
+	// Your code here
+}
+
+void USBC32POFF(lv_event_t * e)
+{
+	// Your code here
+}
+
+void USBC1PON(lv_event_t * e)
+{
+	// Your code here
+}
+
+void USBC1POFF(lv_event_t * e)
+{
+	// Your code here
+}
+
+void USBA45ON(lv_event_t * e)
+{
+	// Your code here
+}
+
+void USBA45OFF(lv_event_t * e)
+{
+	// Your code here
+}

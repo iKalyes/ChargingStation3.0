@@ -15,7 +15,8 @@ extern uint16_t sleep_time;
 extern bool fan_switch;
 extern uint8_t free_space;
 //MAIN SCREEN//
-extern bool USBC_Switch;
+extern bool USBC32_Switch;
+extern bool USBC1_Switch;
 extern bool USBA_Switch;
 //FOR WEB AND WEATHER//
 extern uint16_t UpdateWeater_Time;

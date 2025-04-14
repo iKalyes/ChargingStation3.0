@@ -10,10 +10,12 @@
 extern "C" {
 #endif
 
-void USBCPowerON(lv_event_t * e);
-void USBCPowerOFF(lv_event_t * e);
-void USBAPowerON(lv_event_t * e);
-void USBAPowerOFF(lv_event_t * e);
+void USBC32PON(lv_event_t * e);
+void USBC32POFF(lv_event_t * e);
+void USBC1PON(lv_event_t * e);
+void USBC1POFF(lv_event_t * e);
+void USBA45ON(lv_event_t * e);
+void USBA45OFF(lv_event_t * e);
 void FanSwitchON(lv_event_t * e);
 void FanSwitchOFF(lv_event_t * e);
 void USBA1Adjust(lv_event_t * e);

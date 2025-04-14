@@ -26,7 +26,8 @@ void setup()
     setupWebServer();  // 初始化Web服务器
     
     // 初始化所有开关
-    setTypeCOutput(USBC_Switch);
+    setTypeC32Output(USBC32_Switch);
+    setTypeC1Output(USBC1_Switch);
     setUSBAOutput(USBA_Switch);
     setFan(fan_switch);
     setFanTempControl(tempcontrol_fan);

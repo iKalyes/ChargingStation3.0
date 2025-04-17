@@ -61,9 +61,9 @@ void display_task()
 
 void style_reset()
 {
-    lv_obj_set_style_outline_color(ui_USBC32Switch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_USBC1Switch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_USBASwitch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBC32Switch, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBC1Switch, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBASwitch, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_Setting, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_Weather, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
     

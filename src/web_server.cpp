@@ -220,7 +220,7 @@ const char index_html[] PROGMEM = R"rawliteral(
         }
         .control-panel {
           width: calc(100% - 10px);
-          padding: 6px;
+          padding: 12px; /* 增加内边距 */
           box-sizing: border-box;
           border: 1px solid #ccc;
           border-radius: 10px;
@@ -229,89 +229,156 @@ const char index_html[] PROGMEM = R"rawliteral(
           overflow: hidden;
         }
         .switches-container {
-          display: flex;
-          flex-direction: column; /* 改为列方向，支持多行排列 */
-          gap: 10px; /* 行间距 */
-          padding: 10px;
+          padding: 15px 20px; /* 增加内边距 */
         }
         .switch-row {
           display: flex;
           flex-wrap: wrap;
-          justify-content: space-between; /* 均匀分布 */
+          justify-content: space-around; /* 改为均匀分布 */
           width: 100%;
+          gap: 15px; /* 增加间距 */
         }
-        .switch-item {
-          flex: 0 0 calc(33.33% - 20px);
-          max-width: calc(33.33% - 20px);
+
+        /* 修改磁贴样式，使开启和关闭状态区分更明显 */
+        .tile {
           display: flex;
+          flex-direction: row;
           align-items: center;
-          margin: 8px;
+          justify-content: center;
+          height: 85px; /* 从80px增加到85px */
+          width: 100%;
+          background-color: #e0e0e0; /* 关闭状态背景色 */
+          border-radius: 10px;
+          transition: all 0.3s ease;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          padding: 14px; /* 从12px增加到14px */
+          box-sizing: border-box;
+          text-align: center;
         }
+
+        /* 开启状态样式 - 显著区分颜色 */
+        input:checked + .tile {
+          background-color: #2196F3; /* 开启状态使用蓝色背景 */
+          box-shadow: 0 3px 8px rgba(33, 150, 243, 0.3);
+        }
+
+        /* 开启状态下的图标和文字颜色 */
+        input:checked + .tile .tile-icon,
+        input:checked + .tile .tile-label {
+          color: white; /* 开启状态使用白色文字和图标，提高对比度 */
+        }
+
+        /* 增大图标尺寸 */
+        .tile-icon {
+          font-size: 26px; /* 从22px增大到26px */
+          margin-right: 12px;
+          color: #555; /* 关闭状态下深一点的颜色 */
+          transition: all 0.3s ease;
+        }
+
+        /* 增大文字尺寸 */
+        .tile-label {
+          font-weight: 500;
+          font-size: 20px; /* 从18px增大到20px */
+          color: #444; /* 关闭状态下深一点的颜色 */
+          transition: all 0.3s ease;
+          line-height: 1.2;
+        }
+
+        /* 悬停效果增强 */
+        .tile:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* 修复黑暗模式下的一些样式 */
+        body.dark-mode .tile {
+          background-color: #2d2d2d;
+        }
+
+        body.dark-mode .tile-icon,
+        body.dark-mode .tile-label {
+          color: #aaa;
+        }
+
+        body.dark-mode input:checked + .tile {
+          background-color: #1976d2;
+        }
+
+        /* 响应式调整也需要更新 */
+        @media only screen and (max-width: 767px) {
+          .tile {
+            height: 75px;
+            padding: 10px;
+          }
+          
+          .tile-icon {
+            font-size: 22px;
+          }
+          
+          .tile-label {
+            font-size: 18px;
+          }
+        }
+
+        .switch-item {
+          flex: 1 1 30%;
+          min-width: 160px; /* 增加最小宽度以适应水平布局 */
+          margin: 10px;
+        }
+
         .switch-item.empty {
           visibility: hidden;
         }
-        .switch-label {
-          margin-left: 10px;
-          font-size: 0.95rem;
-          font-weight: 500;
-          color: #333;
+
+        /* 响应式调整 - 在小屏幕上改为两列 */
+        @media (max-width: 768px) {
+          .switch-item {
+            flex: 1 1 45%; /* 在中等屏幕上两列显示 */
+          }
         }
-        .switch {
-          position: relative;
-          display: inline-block;
-          width: 60px;
-          height: 34px;
+
+        @media (max-width: 480px) {
+          .switch-item {
+            flex: 1 1 100%; /* 在小屏幕上单列显示 */
+          }
         }
-        .switch input {
-          opacity: 0;
-          width: 0;
-          height: 0;
+
+        /* 确保在手机强制桌面视图中布局正确 */
+        @media only screen and (max-width: 767px) {
+          .tile {
+            height: 75px; /* 在小屏幕上进一步减小高度 */
+            padding: 10px;
+          }
+          
+          .tile-icon {
+            font-size: 22px;
+          }
+          
+          .tile-label {
+            font-size: 18px;
+          }
         }
-        .slider {
-          position: absolute;
-          cursor: pointer;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: #ccc;
-          transition: .4s;
+
+        /* 1. 隐藏原生复选框 */
+        .tile-switch input[type="checkbox"] {
+          display: none; /* 完全隐藏复选框 */
         }
-        .slider:before {
-          position: absolute;
-          content: "";
-          height: 26px;
-          width: 26px;
-          left: 4px;
-          bottom: 4px;
-          background-color: white;
-          transition: .4s;
-        }
-        input:checked + .slider {
-          background-color: #2196F3;
-        }
-        input:focus + .slider {
-          box-shadow: 0 0 1px #2196F3;
-        }
-        input:checked + .slider:before {
-          transform: translateX(26px);
-        }
-        .slider.round {
-          border-radius: 34px;
-        }
-        .slider.round:before {
-          border-radius: 50%;
-        }
+
+        /* 2. 恢复时间显示样式 */
         .time-display {
-          font-size: 1.8rem; /* 与标题h1相同的字体大小 */
+          font-size: 1.8rem; /* 与标题相同大小 */
           color: white;
-          background-color: rgba(255,255,255,0.1); /* 半透明背景 */
+          background-color: rgba(255,255,255,0.1); /* 添加背景框 */
           padding: 5px 15px;
-          border-radius: 8px;
-          font-weight: 500;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-          min-width: 120px; /* 保证宽度足够 */
-          text-align: center;
+          border-radius: 6px;
+          font-weight: normal;
+          display: inline-block;
+        }
+
+        /* 修改黑暗模式下时间显示的样式 */
+        body.dark-mode .time-display {
+          background-color: rgba(255,255,255,0.15);
         }
       </style>
     </head>
@@ -358,50 +425,62 @@ const char index_html[] PROGMEM = R"rawliteral(
             <!-- 第一行：Type-C 3&2输出，Type-C 1输出，USB-A输出 -->
             <div class="switch-row">
               <div class="switch-item">
-                <label class="switch">
+                <label class="tile-switch">
                   <input type="checkbox" id="typeC32-switch" checked>
-                  <span class="slider round"></span>
+                  <div class="tile">
+                    <i class="fas fa-bolt tile-icon"></i>
+                    <span class="tile-label">Type-C输出[3&2]</span>
+                  </div>
                 </label>
-                <span class="switch-label">Type-C输出[3][2]</span>
               </div>
               <div class="switch-item">
-                <label class="switch">
+                <label class="tile-switch">
                   <input type="checkbox" id="typeC1-switch" checked>
-                  <span class="slider round"></span>
+                  <div class="tile">
+                    <i class="fas fa-bolt tile-icon"></i>
+                    <span class="tile-label">Type-C输出[1]</span>
+                  </div>
                 </label>
-                <span class="switch-label">Type-C输出[1]</span>
               </div>
               <div class="switch-item">
-                <label class="switch">
+                <label class="tile-switch">
                   <input type="checkbox" id="usbA-switch" checked>
-                  <span class="slider round"></span>
+                  <div class="tile">
+                    <i class="fas fa-plug tile-icon"></i>
+                    <span class="tile-label">USB-A输出</span>
+                  </div>
                 </label>
-                <span class="switch-label">USB-A输出[4][5]</span>
               </div>
             </div>
             
             <!-- 第二行：散热风扇、风扇温控和充电指示灯 -->
             <div class="switch-row">
               <div class="switch-item">
-                <label class="switch">
+                <label class="tile-switch">
                   <input type="checkbox" id="fan-switch" checked>
-                  <span class="slider round"></span>
+                  <div class="tile">
+                    <i class="fas fa-wind tile-icon"></i>
+                    <span class="tile-label">散热风扇</span>
+                  </div>
                 </label>
-                <span class="switch-label">散热风扇开关</span>
               </div>
               <div class="switch-item">
-                <label class="switch">
+                <label class="tile-switch">
                   <input type="checkbox" id="fan-temp-control" checked>
-                  <span class="slider round"></span>
+                  <div class="tile">
+                    <i class="fas fa-temperature-high tile-icon"></i>
+                    <span class="tile-label">风扇温控</span>
+                  </div>
                 </label>
-                <span class="switch-label">风扇温控开关</span>
               </div>
               <div class="switch-item">
-                <label class="switch">
+                <label class="tile-switch">
                   <input type="checkbox" id="charge-led" checked>
-                  <span class="slider round"></span>
+                  <div class="tile">
+                    <i class="fas fa-lightbulb tile-icon"></i>
+                    <span class="tile-label">充电指示灯</span>
+                  </div>
                 </label>
-                <span class="switch-label">充电指示灯开关</span>
               </div>
             </div>
           </div>

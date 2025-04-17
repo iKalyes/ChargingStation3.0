@@ -307,3 +307,8 @@ void sleep()
         }
     }
 }
+
+void reset_sleep_EpochTime()
+{
+    sleep_EpochTime = timeClient.getEpochTime() / 60;
+}

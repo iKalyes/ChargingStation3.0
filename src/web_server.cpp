@@ -536,7 +536,7 @@ const char index_html[] PROGMEM = R"rawliteral(
         <div class="chart-group">
           <h3>Type-C 输出[1]</h3>
           <div class="card">
-            <h2>电压[W]<span id="voltageValue3" class="value-display">0.00 V</span></h2>
+            <h2>电压[V]<span id="voltageValue3" class="value-display">0.00 V</span></h2>
             <div class="chart-container">
               <canvas id="voltageChart3"></canvas>
             </div>

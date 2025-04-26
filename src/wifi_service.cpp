@@ -31,7 +31,7 @@ void Webconfig()
   wm.setMinimumSignalQuality(20);  // set min RSSI (percentage) to show in scans, null = 8%
 
   bool res;
-   res = wm.autoConnect("CharingStation"); // anonymous ap
+   res = wm.autoConnect("ChargingStation"); // anonymous ap
 
   while(!res);
 }
@@ -67,7 +67,7 @@ void wificonfig()
     while(WiFi.status() != WL_CONNECTED)
     {
         lv_label_set_text(ui_WIFIStatus, "请连接至热点");
-        lv_label_set_text(ui_SSID, "CharingStation");
+        lv_label_set_text(ui_SSID, "ChargingStation");
         lv_label_set_text(ui_IPADDR, "192.168.4.1");
         int count = 0;
         int count_end = 10000;

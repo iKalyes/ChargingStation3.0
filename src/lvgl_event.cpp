@@ -110,6 +110,7 @@ if ( event_code == LV_EVENT_VALUE_CHANGED) {
       _ui_slider_set_text_value( ui_SleepTime, target, "", "M");
       sleep_time = lv_slider_get_value(target);
       reset_sleep_EpochTime();
+      reset_sleep_millis();
 }
 }
 

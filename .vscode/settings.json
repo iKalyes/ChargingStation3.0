@@ -12,5 +12,6 @@
         "string_view": "cpp",
         "initializer_list": "cpp",
         "regex": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/Users/quin/Documents/ChargingStation3.0/src/ui"
 }

@@ -161,3 +161,8 @@ void sleep_unconnect()
     }
   }
 }
+
+void reset_sleep_millis()
+{
+  sleep_millis = millis();
+}

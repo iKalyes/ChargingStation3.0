@@ -18,6 +18,9 @@ void ina3221_init()
     INA.setShuntR(0, 0.010);
     INA.setShuntR(1, 0.010);
     INA.setShuntR(2, 0.010);
+    INA.setAverage(4);
+    INA.setBusVoltageConversionTime(2);
+    INA.setShuntVoltageConversionTime(2);
     ina3221_timer = lv_timer_create(ina3221_task, 100, NULL);
     rgbled_timer = lv_timer_create(rgbled_task, 1, NULL);
 }

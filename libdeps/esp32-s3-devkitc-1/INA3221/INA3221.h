@@ -80,7 +80,7 @@ public:
   int      disableChannel(uint8_t channel);
   bool     getEnableChannel(uint8_t channel);
 
-  int      setAverage(uint16_t avg = 0);  //  0..7
+  int      setAverage(uint16_t avg = 2);  //  0..7
   uint16_t getAverage();
   int      setBusVoltageConversionTime(uint16_t bvct = 4);  //  0..7
   uint16_t getBusVoltageConversionTime();

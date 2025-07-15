@@ -49,7 +49,7 @@
 // sketch. e.g. with digitalWrite(TFT_BL, LOW);
 
 #define TFT_BL   14            // LED back-light control pin
-#define TFT_BACKLIGHT_ON HIGH // Level to turn ON back-light (HIGH or LOW)
+//#define TFT_BACKLIGHT_ON HIGH // Level to turn ON back-light (HIGH or LOW)
 
 //#define TFT_MISO 19
 #define TFT_MOSI 11

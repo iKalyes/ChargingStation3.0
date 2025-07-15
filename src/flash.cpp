@@ -19,7 +19,7 @@ void save_setting()
 {
     flash.begin("setting");
     flash.putUInt("brightness", brightness);
-    flash.putUInt("sleep_time", sleep_time);
+    flash.putUInt("rotation", rotation);
     flash.putBool("fan_switch", fan_switch);
     flash.end();
 }
@@ -28,7 +28,7 @@ void load_setting()
 {
     flash.begin("setting");
     brightness = flash.getUInt("brightness", 128);
-    sleep_time = flash.getUInt("sleep_time", 0);
+    rotation = flash.getUInt("rotation", 0);
     fan_switch = flash.getBool("fan_switch", false);
     USBC32_Switch = flash.getBool("USBC32_Switch", false);
     USBC1_Switch = flash.getBool("USBC1_Switch", false);

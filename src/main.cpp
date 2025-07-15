@@ -40,5 +40,4 @@ void loop()
     web_server_run(); /* let the web server do its work */
     time_server_update();
     wificonfig();
-    sleep();
 }

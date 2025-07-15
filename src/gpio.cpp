@@ -79,7 +79,7 @@ void TempControl_Fan(float temperature)
         {
             ledcWrite(1, 255);
         }
-        else
+        else if(temperature < 34.0f)
         {
             ledcWrite(1, 0);
         }

@@ -33,7 +33,7 @@ void display_init()
 
     tft.begin();          /* TFT init */
     tft.fillScreen( TFT_BLACK ); /* Fill the screen with black */
-    tft.setRotation( 0 ); /* Landscape orientation, flipped */
+    tft.setRotation( rotation ); /* Landscape orientation, flipped */
 
     lv_disp_draw_buf_init( &draw_buf, buf, NULL, screenWidth * 10 );
 
@@ -59,39 +59,48 @@ void display_task()
     lv_task_handler(); /* let the GUI do its work */
 }
 
+void display_set_rotation( uint8_t new_rotation )
+{
+    rotation = new_rotation;
+    tft.setRotation( rotation ); /* Set the new rotation */
+    lv_disp_set_rotation( lv_disp_get_default(), ( lv_disp_rot_t )rotation ); /* Update LVGL display rotation */
+}
+
 void style_reset()
 {
     lv_obj_set_style_outline_color(ui_USBC32Switch, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_USBC1Switch, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_USBASwitch, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_Setting, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_Weather, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_Setting, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_Weather, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     
     lv_obj_set_style_outline_color(ui_WiFiWebPage, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_AdvancedSetting, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_FanSwitch, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_SliderSleepTime, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_SliderSleepTime, lv_color_hex(0xffff00), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_RotationPlus, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_RotationMinus, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_SliderBrightness, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_SliderBrightness, lv_color_hex(0xffff00), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_Back, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_Back, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
 
-    lv_obj_set_style_outline_color(ui_USBA1Adjust, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_USBA1Adjust, lv_color_hex(0x0000ff), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_USBA2Adjust, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_USBA2Adjust, lv_color_hex(0x0000ff), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_ThermometerAdjust, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_ThermometerAdjust, lv_color_hex(0x0000ff), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_SyncTimeAdjust, lv_color_hex(0xffff00), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_SyncTimeAdjust, lv_color_hex(0x0000ff), LV_STATE_EDITED);
-    lv_obj_set_style_outline_color(ui_AdvancedSettingBack, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);;
+    lv_obj_set_style_outline_color(ui_USBA1Adjust, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBA1Adjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_USBA2Adjust, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_USBA2Adjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_ThermometerAdjust, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_ThermometerAdjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_ThermometerControl, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_LEDControl, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_SyncTimeAdjust, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_SyncTimeAdjust, lv_color_hex(0xffff00), LV_STATE_EDITED);
+    lv_obj_set_style_outline_color(ui_AdvancedSettingBack, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
 
     lv_obj_set_style_outline_color(ui_WIFIStart, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
     lv_obj_set_style_outline_color(ui_WIFIReset, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_WIFIBack, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_WIFIBack, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
 
-    lv_obj_set_style_outline_color(ui_WeatherBack, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
-    lv_obj_set_style_outline_color(ui_WeatherSetting, lv_color_hex(0x0000ff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_WeatherBack, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
+    lv_obj_set_style_outline_color(ui_WeatherSetting, lv_color_hex(0xffffff), LV_STATE_FOCUS_KEY);
 
     static lv_style_t style_pr;
     lv_style_init(&style_pr);
@@ -147,8 +156,6 @@ void setting_reset()
 
     lv_slider_set_value(ui_SliderBrightness, (uint8_t)(brightness / 2.55f + 0.5f), LV_ANIM_OFF);
     lv_label_set_text_fmt(ui_Brightness, "%d%%", (uint8_t)(brightness / 2.55f + 0.5f));
-    lv_slider_set_value(ui_SliderSleepTime, sleep_time, LV_ANIM_OFF);
-    lv_label_set_text_fmt(ui_SleepTime, "%dM", sleep_time);
     int value_full = round(SyncTime * 10);
     int value_int = value_full / 10;
     int value_frac = value_full % 10;
@@ -182,5 +189,4 @@ void setting_reset()
     lv_slider_set_value(ui_USBA1Adjust, (uint16_t)(voltage0_adc * 100), LV_ANIM_OFF);
     lv_slider_set_value(ui_USBA2Adjust, (uint16_t)(voltage1_adc * 100), LV_ANIM_OFF);
     lv_slider_set_value(ui_ThermometerAdjust, (uint16_t)(temperature_adc * 100), LV_ANIM_OFF);
-    lv_slider_set_value(ui_ThermometerAdjust, (uint8_t)(SyncTime * 10), LV_ANIM_OFF);
 }

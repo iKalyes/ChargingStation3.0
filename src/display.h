@@ -22,6 +22,7 @@ void backlight_init();
 void backlight_set( uint8_t brightness );
 void display_init();
 void display_task();
+void display_set_rotation( uint8_t new_rotation );
 void style_reset();
 void setting_reset();
 

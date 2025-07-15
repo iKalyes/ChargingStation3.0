@@ -25,7 +25,10 @@ void lvgl_group_to_setting()
     lv_group_add_obj(group, ui_WiFiWebPage);
     lv_group_add_obj(group, ui_AdvancedSetting);
     lv_group_add_obj(group, ui_FanSwitch);
-    lv_group_add_obj(group, ui_SliderSleepTime);
+
+    lv_group_add_obj(group, ui_RotationPlus);
+    lv_group_add_obj(group, ui_RotationMinus);
+
     lv_group_add_obj(group, ui_SliderBrightness);
     lv_group_add_obj(group, ui_Back);
 }

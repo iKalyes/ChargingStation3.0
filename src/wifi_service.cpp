@@ -101,10 +101,6 @@ void wificonfig()
         wificonfig_flag = false;
     }
   }
-  else
-  {
-    sleep_unconnect();
-  }
 }
 
 void wificonnect()
@@ -133,36 +129,4 @@ void wifireset()
   wm.resetSettings();
   delete_wifi_config();
   ESP.restart();
-}
-
-bool time_get_strap_unconnect = false;
-int sleep_millis = 0;
-void sleep_unconnect()
-{
-  if(time_get_strap_unconnect == false)
-  {
-    time_get_strap_unconnect = true;
-    sleep_millis = millis();
-  }
-  if(sleep_time == 0)
-  {
-    return;
-  }
-  else
-  {
-    if(millis() - sleep_millis >= sleep_time * 60000)
-    {
-      backlight_set(0);
-      esp_wifi_stop();
-      gpio_wakeup_enable(SWITCH_ENTER_NUM, GPIO_INTR_LOW_LEVEL);
-      esp_sleep_enable_gpio_wakeup();
-      esp_light_sleep_start();
-      esp_restart();
-    }
-  }
-}
-
-void reset_sleep_millis()
-{
-  sleep_millis = millis();
 }

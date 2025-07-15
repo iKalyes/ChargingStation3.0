@@ -139,3 +139,13 @@ void USBA45OFF(lv_event_t * e)
 {
 	// Your code here
 }
+
+void RotationPlus(lv_event_t * e)
+{
+	// Your code here
+}
+
+void RotationMinus(lv_event_t * e)
+{
+	// Your code here
+}

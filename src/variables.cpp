@@ -9,7 +9,7 @@ bool tempcontrol_fan = false; //温控风扇开关
 bool led_enabled = false;
 //SEETING SCREEN//
 uint8_t brightness = 0;
-uint16_t sleep_time = 0;
+uint8_t rotation = 0;
 bool fan_switch = false;
 uint8_t free_space;
 //MAIN SCREEN//

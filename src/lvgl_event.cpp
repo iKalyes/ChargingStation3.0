@@ -54,7 +54,7 @@ if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_
 void ui_event_Weather( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-if ( event_code == LV_EVENT_PRESSED) {
+if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_WeatherScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_WeatherScreen_screen_init);
       lvgl_group_to_weather();
 }
@@ -63,7 +63,7 @@ if ( event_code == LV_EVENT_PRESSED) {
 void ui_event_Setting( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-if ( event_code == LV_EVENT_PRESSED) {
+if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_SettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, &ui_SettingScreen_screen_init);
       lvgl_group_to_setting();
 }
@@ -73,7 +73,7 @@ void ui_event_WiFiWebPage(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_PRESSED) {
+    if(event_code == LV_EVENT_RELEASED) {
         _ui_screen_change(&ui_WiFiScreen, LV_SCR_LOAD_ANIM_NONE, 0, 0, &ui_WiFiScreen_screen_init);
         lvgl_group_to_wifi();
     }
@@ -82,7 +82,7 @@ void ui_event_WiFiWebPage(lv_event_t * e)
 void ui_event_AdvancedSetting( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-if ( event_code == LV_EVENT_PRESSED) {
+if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_AdvancedSettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_AdvancedSettingScreen_screen_init);
       lvgl_group_to_advancedsetting();
 }
@@ -103,15 +103,28 @@ if ( event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target,LV_STATE_
 }
 }
 
-void ui_event_SliderSleepTime( lv_event_t * e) {
-    lv_event_code_t event_code = lv_event_get_code(e);lv_obj_t * target = lv_event_get_target(e);
+void ui_event_RotationPlus(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
 
-if ( event_code == LV_EVENT_VALUE_CHANGED) {
-      _ui_slider_set_text_value( ui_SleepTime, target, "", "M");
-      sleep_time = lv_slider_get_value(target);
-      reset_sleep_EpochTime();
-      reset_sleep_millis();
+    if(event_code == LV_EVENT_RELEASED) {
+        RotationPlus(e);
+        // 增加旋转角度，范围0-4循环
+        rotation = (rotation + 1) % 5;
+        display_set_rotation(rotation);
+    }
 }
+
+void ui_event_RotationMinus(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_RELEASED) {
+        RotationMinus(e);
+        // 减少旋转角度，范围0-4循环
+        rotation = (rotation == 0) ? 4 : (rotation - 1);
+        display_set_rotation(rotation);
+    }
 }
 
 void ui_event_SliderBrightness( lv_event_t * e) {
@@ -128,7 +141,7 @@ if ( event_code == LV_EVENT_VALUE_CHANGED) {
 void ui_event_Back( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-if ( event_code == LV_EVENT_PRESSED) {
+if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, &ui_MainScreen_screen_init);
       lvgl_group_to_main();
       save_setting();
@@ -209,7 +222,7 @@ if ( event_code == LV_EVENT_VALUE_CHANGED) {
 void ui_event_AdvancedSettingBack( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-if ( event_code == LV_EVENT_PRESSED) {
+if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_SettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_SettingScreen_screen_init);
       lvgl_group_to_setting();
       save_advanced_setting();
@@ -220,7 +233,7 @@ void ui_event_WIFIStart(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_PRESSED) {
+    if(event_code == LV_EVENT_RELEASED) {
         WIFIStart(e);
         wificonfig_flag = true;
     }
@@ -230,7 +243,7 @@ void ui_event_WIFIReset(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_PRESSED) {
+    if(event_code == LV_EVENT_RELEASED) {
         WIFIResrt(e);
         wifireset();
     }
@@ -240,7 +253,7 @@ void ui_event_WIFIBack(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-    if(event_code == LV_EVENT_PRESSED) {
+    if(event_code == LV_EVENT_RELEASED) {
         _ui_screen_change(&ui_SettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 200, 0, &ui_SettingScreen_screen_init);
         lvgl_group_to_setting();
     }
@@ -249,7 +262,7 @@ void ui_event_WIFIBack(lv_event_t * e)
 void ui_event_WeatherBack( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-if ( event_code == LV_EVENT_PRESSED) {
+if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_MainScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_MainScreen_screen_init);
       lvgl_group_to_main();
 }
@@ -258,7 +271,7 @@ if ( event_code == LV_EVENT_PRESSED) {
 void ui_event_WeatherSetting( lv_event_t * e) {
     lv_event_code_t event_code = lv_event_get_code(e);
 
-if ( event_code == LV_EVENT_PRESSED) {
+if ( event_code == LV_EVENT_RELEASED) {
       _ui_screen_change( &ui_SettingScreen, LV_SCR_LOAD_ANIM_FADE_ON, 100, 0, &ui_SettingScreen_screen_init);
       lvgl_group_to_setting();
 }

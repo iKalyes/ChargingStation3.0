@@ -3,3 +3,5 @@
 .vscode/launch.json
 .vscode/ipch
 .DS_Store
+/.pio/build
+/UI/backup

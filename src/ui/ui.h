@@ -11,15 +11,15 @@ extern "C" {
 #endif
 
 #if defined __has_include
-  #if __has_include("lvgl.h")
-    #include "lvgl.h"
-  #elif __has_include("lvgl/lvgl.h")
-    #include "lvgl/lvgl.h"
-  #else
-    #include "lvgl.h"
-  #endif
+#if __has_include("lvgl.h")
+#include "lvgl.h"
+#elif __has_include("lvgl/lvgl.h")
+#include "lvgl/lvgl.h"
 #else
-  #include "lvgl.h"
+#include "lvgl.h"
+#endif
+#else
+#include "lvgl.h"
 #endif
 
 #include "ui_helpers.h"
@@ -29,281 +29,284 @@ extern "C" {
 
 // SCREEN: ui_MainScreen
 void ui_MainScreen_screen_init(void);
-extern lv_obj_t *ui_MainScreen;
-extern lv_obj_t *ui_MainHeader;
-void ui_event_USBC32Switch( lv_event_t * e);
-extern lv_obj_t *ui_USBC32Switch;
-extern lv_obj_t *ui_HeaderUSBC32;
-extern lv_obj_t *ui_TextC32;
-void ui_event_USBC1Switch( lv_event_t * e);
-extern lv_obj_t *ui_USBC1Switch;
-extern lv_obj_t *ui_HeaderUSBC1;
-extern lv_obj_t *ui_TextC1;
-void ui_event_USBASwitch( lv_event_t * e);
-extern lv_obj_t *ui_USBASwitch;
-extern lv_obj_t *ui_HeaderUSBA;
-extern lv_obj_t *ui_TextA45;
-extern lv_obj_t *ui_ImageWiFi;
-extern lv_obj_t *ui_SysTempDock;
-extern lv_obj_t *ui_TextSysTemp;
-extern lv_obj_t *ui_SysTemp;
-extern lv_obj_t *ui_USBA1;
-extern lv_obj_t *ui_ImageUSBA1;
-extern lv_obj_t *ui_VoltageUSBA1;
-extern lv_obj_t *ui_USBA2;
-extern lv_obj_t *ui_ImageUSBA2;
-extern lv_obj_t *ui_VoltageUSBA2;
-extern lv_obj_t *ui_USBC3;
-extern lv_obj_t *ui_ImageC3;
-extern lv_obj_t *ui_VoltageC3;
-extern lv_obj_t *ui_CurrentC3;
-extern lv_obj_t *ui_PowerC3;
-extern lv_obj_t *ui_USBC2;
-extern lv_obj_t *ui_ImageC2;
-extern lv_obj_t *ui_ImageC2Fast;
-extern lv_obj_t *ui_VoltageC2;
-extern lv_obj_t *ui_CurrentC2;
-extern lv_obj_t *ui_PowerC2;
-extern lv_obj_t *ui_USBC1;
-extern lv_obj_t *ui_ImageC1;
-extern lv_obj_t *ui_ImageC1Fast;
-extern lv_obj_t *ui_VoltageC1;
-extern lv_obj_t *ui_CurrentC1;
-extern lv_obj_t *ui_PowerC1;
-extern lv_obj_t *ui_MainPower;
-extern lv_obj_t *ui_TextVoltage;
-extern lv_obj_t *ui_Voltage;
-extern lv_obj_t *ui_TextCurrent;
-extern lv_obj_t *ui_Current;
-extern lv_obj_t *ui_TextPower;
-extern lv_obj_t *ui_Power;
-void ui_event_Weather( lv_event_t * e);
-extern lv_obj_t *ui_Weather;
-extern lv_obj_t *ui_TextWeather;
-void ui_event_Setting( lv_event_t * e);
-extern lv_obj_t *ui_Setting;
-extern lv_obj_t *ui_TextSetting;
+extern lv_obj_t * ui_MainScreen;
+extern lv_obj_t * ui_MainHeader;
+void ui_event_USBC32Switch(lv_event_t * e);
+extern lv_obj_t * ui_USBC32Switch;
+extern lv_obj_t * ui_HeaderUSBC32;
+extern lv_obj_t * ui_TextC32;
+void ui_event_USBC1Switch(lv_event_t * e);
+extern lv_obj_t * ui_USBC1Switch;
+extern lv_obj_t * ui_HeaderUSBC1;
+extern lv_obj_t * ui_TextC1;
+void ui_event_USBASwitch(lv_event_t * e);
+extern lv_obj_t * ui_USBASwitch;
+extern lv_obj_t * ui_HeaderUSBA;
+extern lv_obj_t * ui_TextA45;
+extern lv_obj_t * ui_ImageWiFi;
+extern lv_obj_t * ui_SysTempDock;
+extern lv_obj_t * ui_TextSysTemp;
+extern lv_obj_t * ui_SysTemp;
+extern lv_obj_t * ui_USBA1;
+extern lv_obj_t * ui_ImageUSBA1;
+extern lv_obj_t * ui_VoltageUSBA1;
+extern lv_obj_t * ui_USBA2;
+extern lv_obj_t * ui_ImageUSBA2;
+extern lv_obj_t * ui_VoltageUSBA2;
+extern lv_obj_t * ui_USBC3;
+extern lv_obj_t * ui_ImageC3;
+extern lv_obj_t * ui_VoltageC3;
+extern lv_obj_t * ui_CurrentC3;
+extern lv_obj_t * ui_PowerC3;
+extern lv_obj_t * ui_USBC2;
+extern lv_obj_t * ui_ImageC2;
+extern lv_obj_t * ui_ImageC2Fast;
+extern lv_obj_t * ui_VoltageC2;
+extern lv_obj_t * ui_CurrentC2;
+extern lv_obj_t * ui_PowerC2;
+extern lv_obj_t * ui_USBC1;
+extern lv_obj_t * ui_ImageC1;
+extern lv_obj_t * ui_ImageC1Fast;
+extern lv_obj_t * ui_VoltageC1;
+extern lv_obj_t * ui_CurrentC1;
+extern lv_obj_t * ui_PowerC1;
+extern lv_obj_t * ui_MainPower;
+extern lv_obj_t * ui_TextVoltage;
+extern lv_obj_t * ui_Voltage;
+extern lv_obj_t * ui_TextCurrent;
+extern lv_obj_t * ui_Current;
+extern lv_obj_t * ui_TextPower;
+extern lv_obj_t * ui_Power;
+void ui_event_Weather(lv_event_t * e);
+extern lv_obj_t * ui_Weather;
+extern lv_obj_t * ui_TextWeather;
+void ui_event_Setting(lv_event_t * e);
+extern lv_obj_t * ui_Setting;
+extern lv_obj_t * ui_TextSetting;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SettingScreen
 void ui_SettingScreen_screen_init(void);
-extern lv_obj_t *ui_SettingScreen;
-extern lv_obj_t *ui_SettingHeader;
-extern lv_obj_t *ui_TextSettingHeader;
-extern lv_obj_t *ui_FreeSpace;
-extern lv_obj_t *ui_SettingDock;
-void ui_event_WiFiWebPage( lv_event_t * e);
-extern lv_obj_t *ui_WiFiWebPage;
-extern lv_obj_t *ui_ImageWiFiWebPage;
-extern lv_obj_t *ui_TextWiFiWebPage;
-void ui_event_AdvancedSetting( lv_event_t * e);
-extern lv_obj_t *ui_AdvancedSetting;
-extern lv_obj_t *ui_ImageADCAdjust;
-extern lv_obj_t *ui_TextADCAdjust;
-extern lv_obj_t *ui_PanelFanSwitch;
-extern lv_obj_t *ui_ImageFanSwitch;
-extern lv_obj_t *ui_TextFanSwitch;
-void ui_event_FanSwitch( lv_event_t * e);
-extern lv_obj_t *ui_FanSwitch;
-void ui_event_SliderSleepTime( lv_event_t * e);
-extern lv_obj_t *ui_SliderSleepTime;
-extern lv_obj_t *ui_ImageSleepTime;
-extern lv_obj_t *ui_SleepTime;
-void ui_event_SliderBrightness( lv_event_t * e);
-extern lv_obj_t *ui_SliderBrightness;
-extern lv_obj_t *ui_ImageBrightness;
-extern lv_obj_t *ui_Brightness;
-void ui_event_Back( lv_event_t * e);
-extern lv_obj_t *ui_Back;
-extern lv_obj_t *ui_TextBack;
+extern lv_obj_t * ui_SettingScreen;
+extern lv_obj_t * ui_SettingHeader;
+extern lv_obj_t * ui_TextSettingHeader;
+extern lv_obj_t * ui_FreeSpace;
+extern lv_obj_t * ui_SettingDock;
+void ui_event_WiFiWebPage(lv_event_t * e);
+extern lv_obj_t * ui_WiFiWebPage;
+extern lv_obj_t * ui_ImageWiFiWebPage;
+extern lv_obj_t * ui_TextWiFiWebPage;
+void ui_event_AdvancedSetting(lv_event_t * e);
+extern lv_obj_t * ui_AdvancedSetting;
+extern lv_obj_t * ui_ImageADCAdjust;
+extern lv_obj_t * ui_TextADCAdjust;
+extern lv_obj_t * ui_PanelFanSwitch;
+extern lv_obj_t * ui_ImageFanSwitch;
+extern lv_obj_t * ui_TextFanSwitch;
+void ui_event_FanSwitch(lv_event_t * e);
+extern lv_obj_t * ui_FanSwitch;
+void ui_event_SliderBrightness(lv_event_t * e);
+extern lv_obj_t * ui_SliderBrightness;
+extern lv_obj_t * ui_ImageBrightness;
+extern lv_obj_t * ui_Brightness;
+void ui_event_RotationPlus(lv_event_t * e);
+extern lv_obj_t * ui_RotationPlus;
+extern lv_obj_t * ui_TextRotationPlus;
+void ui_event_RotationMinus(lv_event_t * e);
+extern lv_obj_t * ui_RotationMinus;
+extern lv_obj_t * ui_TextRotationMinus;
+void ui_event_Back(lv_event_t * e);
+extern lv_obj_t * ui_Back;
+extern lv_obj_t * ui_TextBack;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_AdvancedSettingScreen
 void ui_AdvancedSettingScreen_screen_init(void);
-extern lv_obj_t *ui_AdvancedSettingScreen;
-extern lv_obj_t *ui_AdvancedSettingHeader;
-extern lv_obj_t *ui_TextAdvancedSetting;
-extern lv_obj_t *ui_AdvancedSettingDock;
-void ui_event_USBA1Adjust( lv_event_t * e);
-extern lv_obj_t *ui_USBA1Adjust;
-extern lv_obj_t *ui_ImageUSBA1ADC;
-extern lv_obj_t *ui_TextUSBA1;
-extern lv_obj_t *ui_VoltageUSBA1ADC;
-void ui_event_USBA2Adjust( lv_event_t * e);
-extern lv_obj_t *ui_USBA2Adjust;
-extern lv_obj_t *ui_ImageUSBA2ADC;
-extern lv_obj_t *ui_TextUSBA3;
-extern lv_obj_t *ui_VoltageUSBA2ADC;
-void ui_event_ThermometerAdjust( lv_event_t * e);
-extern lv_obj_t *ui_ThermometerAdjust;
-extern lv_obj_t *ui_ImageThermometer;
-extern lv_obj_t *ui_SysTempAdjust;
-extern lv_obj_t *ui_TextThermometer;
-extern lv_obj_t *ui_ThermometerControlDock;
-void ui_event_ThermometerControl( lv_event_t * e);
-extern lv_obj_t *ui_ThermometerControl;
-extern lv_obj_t *ui_ImageThermometer2;
-void ui_event_SyncTimeAdjust( lv_event_t * e);
-extern lv_obj_t *ui_SyncTimeAdjust;
-extern lv_obj_t *ui_ImageSyncTimeAdjust;
-extern lv_obj_t *ui_TextSyncTimeAdjust;
-extern lv_obj_t *ui_TextSyncTimeSet;
-extern lv_obj_t *ui_LEDControlDock;
-void ui_event_LEDControl( lv_event_t * e);
-extern lv_obj_t *ui_LEDControl;
-extern lv_obj_t *ui_ImageLEDControl;
-void ui_event_AdvancedSettingBack( lv_event_t * e);
-extern lv_obj_t *ui_AdvancedSettingBack;
-extern lv_obj_t *ui_TextADCBack;
+extern lv_obj_t * ui_AdvancedSettingScreen;
+extern lv_obj_t * ui_AdvancedSettingHeader;
+extern lv_obj_t * ui_TextAdvancedSetting;
+extern lv_obj_t * ui_AdvancedSettingDock;
+void ui_event_USBA1Adjust(lv_event_t * e);
+extern lv_obj_t * ui_USBA1Adjust;
+extern lv_obj_t * ui_ImageUSBA1ADC;
+extern lv_obj_t * ui_TextUSBA1;
+extern lv_obj_t * ui_VoltageUSBA1ADC;
+void ui_event_USBA2Adjust(lv_event_t * e);
+extern lv_obj_t * ui_USBA2Adjust;
+extern lv_obj_t * ui_ImageUSBA2ADC;
+extern lv_obj_t * ui_TextUSBA3;
+extern lv_obj_t * ui_VoltageUSBA2ADC;
+void ui_event_ThermometerAdjust(lv_event_t * e);
+extern lv_obj_t * ui_ThermometerAdjust;
+extern lv_obj_t * ui_ImageThermometer;
+extern lv_obj_t * ui_SysTempAdjust;
+extern lv_obj_t * ui_TextThermometer;
+extern lv_obj_t * ui_ThermometerControlDock;
+void ui_event_ThermometerControl(lv_event_t * e);
+extern lv_obj_t * ui_ThermometerControl;
+extern lv_obj_t * ui_ImageThermometer2;
+void ui_event_SyncTimeAdjust(lv_event_t * e);
+extern lv_obj_t * ui_SyncTimeAdjust;
+extern lv_obj_t * ui_ImageSyncTimeAdjust;
+extern lv_obj_t * ui_TextSyncTimeAdjust;
+extern lv_obj_t * ui_TextSyncTimeSet;
+extern lv_obj_t * ui_LEDControlDock;
+void ui_event_LEDControl(lv_event_t * e);
+extern lv_obj_t * ui_LEDControl;
+extern lv_obj_t * ui_ImageLEDControl;
+void ui_event_AdvancedSettingBack(lv_event_t * e);
+extern lv_obj_t * ui_AdvancedSettingBack;
+extern lv_obj_t * ui_TextADCBack;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_WiFiScreen
 void ui_WiFiScreen_screen_init(void);
-extern lv_obj_t *ui_WiFiScreen;
-extern lv_obj_t *ui_WIFIHeader;
-extern lv_obj_t *ui_TextWIFIHeader;
-void ui_event_WIFIBack( lv_event_t * e);
-extern lv_obj_t *ui_WIFIBack;
-extern lv_obj_t *ui_TextWIFIBack;
-extern lv_obj_t *ui_WIFISettingDock;
-void ui_event_WIFIStart( lv_event_t * e);
-extern lv_obj_t *ui_WIFIStart;
-extern lv_obj_t *ui_TextWIFIStart;
-void ui_event_WIFIReset( lv_event_t * e);
-extern lv_obj_t *ui_WIFIReset;
-extern lv_obj_t *ui_TextWIFIReset;
-extern lv_obj_t *ui_WIFIStatus;
-extern lv_obj_t *ui_TEXTSSID;
-extern lv_obj_t *ui_SSID;
-extern lv_obj_t *ui_TEXTIP;
-extern lv_obj_t *ui_IPADDR;
-extern lv_obj_t *ui_TEXTSYNCTIME;
-extern lv_obj_t *ui_SYNCTIME;
+extern lv_obj_t * ui_WiFiScreen;
+extern lv_obj_t * ui_WIFIHeader;
+extern lv_obj_t * ui_TextWIFIHeader;
+void ui_event_WIFIBack(lv_event_t * e);
+extern lv_obj_t * ui_WIFIBack;
+extern lv_obj_t * ui_TextWIFIBack;
+extern lv_obj_t * ui_WIFISettingDock;
+void ui_event_WIFIStart(lv_event_t * e);
+extern lv_obj_t * ui_WIFIStart;
+extern lv_obj_t * ui_TextWIFIStart;
+void ui_event_WIFIReset(lv_event_t * e);
+extern lv_obj_t * ui_WIFIReset;
+extern lv_obj_t * ui_TextWIFIReset;
+extern lv_obj_t * ui_WIFIStatus;
+extern lv_obj_t * ui_TEXTSSID;
+extern lv_obj_t * ui_SSID;
+extern lv_obj_t * ui_TEXTIP;
+extern lv_obj_t * ui_IPADDR;
+extern lv_obj_t * ui_TEXTSYNCTIME;
+extern lv_obj_t * ui_SYNCTIME;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_WeatherScreen
 void ui_WeatherScreen_screen_init(void);
-extern lv_obj_t *ui_WeatherScreen;
-void ui_event_WeatherBack( lv_event_t * e);
-extern lv_obj_t *ui_WeatherBack;
-extern lv_obj_t *ui_TextWeatherBack;
-void ui_event_WeatherSetting( lv_event_t * e);
-extern lv_obj_t *ui_WeatherSetting;
-extern lv_obj_t *ui_TextWeatherSetting;
-extern lv_obj_t *ui_WeatherDock;
-extern lv_obj_t *ui_ImageTemp;
-extern lv_obj_t *ui_ImageHumi;
-extern lv_obj_t *ui_Humidity;
-extern lv_obj_t *ui_Temperature;
-extern lv_obj_t *ui_WeatherPanel;
-extern lv_obj_t *ui_WeatherICON;
-extern lv_obj_t *ui_Week;
-extern lv_obj_t *ui_WheatherCHN0Panel;
-extern lv_obj_t *ui_WeatherCHN;
-extern lv_obj_t *ui_TimeDock;
-extern lv_obj_t *ui_TextWTime;
-extern lv_obj_t *ui_WHour;
-extern lv_obj_t *ui_WMinute;
-extern lv_obj_t *ui_WSecond;
-extern lv_obj_t *ui_PowerDock;
-extern lv_obj_t *ui_TextWVoltage;
-extern lv_obj_t *ui_TextWCurrent;
-extern lv_obj_t *ui_TextPower1;
-extern lv_obj_t *ui_WVoltage;
-extern lv_obj_t *ui_WCurrent;
-extern lv_obj_t *ui_WPower;
+extern lv_obj_t * ui_WeatherScreen;
+void ui_event_WeatherBack(lv_event_t * e);
+extern lv_obj_t * ui_WeatherBack;
+extern lv_obj_t * ui_TextWeatherBack;
+void ui_event_WeatherSetting(lv_event_t * e);
+extern lv_obj_t * ui_WeatherSetting;
+extern lv_obj_t * ui_TextWeatherSetting;
+extern lv_obj_t * ui_WeatherDock;
+extern lv_obj_t * ui_ImageTemp;
+extern lv_obj_t * ui_ImageHumi;
+extern lv_obj_t * ui_Humidity;
+extern lv_obj_t * ui_Temperature;
+extern lv_obj_t * ui_WeatherPanel;
+extern lv_obj_t * ui_WeatherICON;
+extern lv_obj_t * ui_Week;
+extern lv_obj_t * ui_WheatherCHN0Panel;
+extern lv_obj_t * ui_WeatherCHN;
+extern lv_obj_t * ui_TimeDock;
+extern lv_obj_t * ui_TextWTime;
+extern lv_obj_t * ui_WHour;
+extern lv_obj_t * ui_WMinute;
+extern lv_obj_t * ui_WSecond;
+extern lv_obj_t * ui_PowerDock;
+extern lv_obj_t * ui_TextWVoltage;
+extern lv_obj_t * ui_TextWCurrent;
+extern lv_obj_t * ui_TextPower1;
+extern lv_obj_t * ui_WVoltage;
+extern lv_obj_t * ui_WCurrent;
+extern lv_obj_t * ui_WPower;
 // CUSTOM VARIABLES
 
 // EVENTS
-extern lv_obj_t *ui____initial_actions0;
+
+extern lv_obj_t * ui____initial_actions0;
 
 // IMAGES AND IMAGE SETS
-LV_IMG_DECLARE( ui_img_426970754);   // assets/mdi_usb-c-port.png
-LV_IMG_DECLARE( ui_img_2092987087);   // assets/icon-park-outline_usb-micro-one.png
-LV_IMG_DECLARE( ui_img_1338783594);   // assets/material-symbols_wifi-off-rounded.png
-LV_IMG_DECLARE( ui_img_175199537);   // assets/mynaui_lightning-solid.png
-LV_IMG_DECLARE( ui_img_593743026);   // assets/material-symbols_wifi-rounded.png
-LV_IMG_DECLARE( ui_img_155116563);   // assets/material-symbols_instant-mix-rounded.png
-LV_IMG_DECLARE( ui_img_2103744591);   // assets/material-symbols_mode-fan-outline.png
-LV_IMG_DECLARE( ui_img_123890670);   // assets/icon-park-outline_sleep.png
-LV_IMG_DECLARE( ui_img_763584403);   // assets/iconamoon_mode-light.png
-LV_IMG_DECLARE( ui_img_f7_thermometer_png);   // assets/f7_thermometer.png
-LV_IMG_DECLARE( ui_img_199350223);   // assets/material-symbols_nest-clock-farsight-analog-outline-rounded.png
-LV_IMG_DECLARE( ui_img_2108985116);   // assets/material-symbols_wb-twilight-outline-rounded.png
-LV_IMG_DECLARE( ui_img_carbon_humidity_png);   // assets/carbon_humidity.png
-LV_IMG_DECLARE( ui_img_999_png);   // assets/999.png
-LV_IMG_DECLARE( ui_img_100_png);   // assets/100.png
-LV_IMG_DECLARE( ui_img_101_png);   // assets/101.png
-LV_IMG_DECLARE( ui_img_102_png);   // assets/102.png
-LV_IMG_DECLARE( ui_img_103_png);   // assets/103.png
-LV_IMG_DECLARE( ui_img_104_png);   // assets/104.png
-LV_IMG_DECLARE( ui_img_150_png);   // assets/150.png
-LV_IMG_DECLARE( ui_img_151_png);   // assets/151.png
-LV_IMG_DECLARE( ui_img_152_png);   // assets/152.png
-LV_IMG_DECLARE( ui_img_153_png);   // assets/153.png
-LV_IMG_DECLARE( ui_img_300_png);   // assets/300.png
-LV_IMG_DECLARE( ui_img_301_png);   // assets/301.png
-LV_IMG_DECLARE( ui_img_302_png);   // assets/302.png
-LV_IMG_DECLARE( ui_img_303_png);   // assets/303.png
-LV_IMG_DECLARE( ui_img_304_png);   // assets/304.png
-LV_IMG_DECLARE( ui_img_305_png);   // assets/305.png
-LV_IMG_DECLARE( ui_img_306_png);   // assets/306.png
-LV_IMG_DECLARE( ui_img_307_png);   // assets/307.png
-LV_IMG_DECLARE( ui_img_308_png);   // assets/308.png
-LV_IMG_DECLARE( ui_img_309_png);   // assets/309.png
-LV_IMG_DECLARE( ui_img_310_png);   // assets/310.png
-LV_IMG_DECLARE( ui_img_311_png);   // assets/311.png
-LV_IMG_DECLARE( ui_img_312_png);   // assets/312.png
-LV_IMG_DECLARE( ui_img_313_png);   // assets/313.png
-LV_IMG_DECLARE( ui_img_314_png);   // assets/314.png
-LV_IMG_DECLARE( ui_img_315_png);   // assets/315.png
-LV_IMG_DECLARE( ui_img_316_png);   // assets/316.png
-LV_IMG_DECLARE( ui_img_317_png);   // assets/317.png
-LV_IMG_DECLARE( ui_img_318_png);   // assets/318.png
-LV_IMG_DECLARE( ui_img_350_png);   // assets/350.png
-LV_IMG_DECLARE( ui_img_351_png);   // assets/351.png
-LV_IMG_DECLARE( ui_img_399_png);   // assets/399.png
-LV_IMG_DECLARE( ui_img_400_png);   // assets/400.png
-LV_IMG_DECLARE( ui_img_401_png);   // assets/401.png
-LV_IMG_DECLARE( ui_img_402_png);   // assets/402.png
-LV_IMG_DECLARE( ui_img_403_png);   // assets/403.png
-LV_IMG_DECLARE( ui_img_404_png);   // assets/404.png
-LV_IMG_DECLARE( ui_img_405_png);   // assets/405.png
-LV_IMG_DECLARE( ui_img_406_png);   // assets/406.png
-LV_IMG_DECLARE( ui_img_407_png);   // assets/407.png
-LV_IMG_DECLARE( ui_img_408_png);   // assets/408.png
-LV_IMG_DECLARE( ui_img_409_png);   // assets/409.png
-LV_IMG_DECLARE( ui_img_410_png);   // assets/410.png
-LV_IMG_DECLARE( ui_img_456_png);   // assets/456.png
-LV_IMG_DECLARE( ui_img_457_png);   // assets/457.png
-LV_IMG_DECLARE( ui_img_499_png);   // assets/499.png
-LV_IMG_DECLARE( ui_img_500_png);   // assets/500.png
-LV_IMG_DECLARE( ui_img_501_png);   // assets/501.png
-LV_IMG_DECLARE( ui_img_502_png);   // assets/502.png
-LV_IMG_DECLARE( ui_img_503_png);   // assets/503.png
-LV_IMG_DECLARE( ui_img_504_png);   // assets/504.png
-LV_IMG_DECLARE( ui_img_507_png);   // assets/507.png
-LV_IMG_DECLARE( ui_img_508_png);   // assets/508.png
-LV_IMG_DECLARE( ui_img_509_png);   // assets/509.png
-LV_IMG_DECLARE( ui_img_510_png);   // assets/510.png
-LV_IMG_DECLARE( ui_img_511_png);   // assets/511.png
-LV_IMG_DECLARE( ui_img_512_png);   // assets/512.png
-LV_IMG_DECLARE( ui_img_513_png);   // assets/513.png
-LV_IMG_DECLARE( ui_img_514_png);   // assets/514.png
-LV_IMG_DECLARE( ui_img_515_png);   // assets/515.png
-LV_IMG_DECLARE( ui_img_900_png);   // assets/900.png
-LV_IMG_DECLARE( ui_img_901_png);   // assets/901.png
-LV_IMG_DECLARE( ui_img_1222334931);   // assets/fluent_weather-fog-20-filled.png
-LV_IMG_DECLARE( ui_img_1671917170);   // assets/material-symbols_settings-rounded.png
+LV_IMG_DECLARE(ui_img_426970754);    // assets/mdi_usb-c-port.png
+LV_IMG_DECLARE(ui_img_2092987087);    // assets/icon-park-outline_usb-micro-one.png
+LV_IMG_DECLARE(ui_img_1338783594);    // assets/material-symbols_wifi-off-rounded.png
+LV_IMG_DECLARE(ui_img_175199537);    // assets/mynaui_lightning-solid.png
+LV_IMG_DECLARE(ui_img_593743026);    // assets/material-symbols_wifi-rounded.png
+LV_IMG_DECLARE(ui_img_155116563);    // assets/material-symbols_instant-mix-rounded.png
+LV_IMG_DECLARE(ui_img_2103744591);    // assets/material-symbols_mode-fan-outline.png
+LV_IMG_DECLARE(ui_img_763584403);    // assets/iconamoon_mode-light.png
+LV_IMG_DECLARE(ui_img_f7_thermometer_png);    // assets/f7_thermometer.png
+LV_IMG_DECLARE(ui_img_199350223);    // assets/material-symbols_nest-clock-farsight-analog-outline-rounded.png
+LV_IMG_DECLARE(ui_img_2108985116);    // assets/material-symbols_wb-twilight-outline-rounded.png
+LV_IMG_DECLARE(ui_img_carbon_humidity_png);    // assets/carbon_humidity.png
+LV_IMG_DECLARE(ui_img_999_png);    // assets/999.png
+LV_IMG_DECLARE(ui_img_100_png);    // assets/100.png
+LV_IMG_DECLARE(ui_img_101_png);    // assets/101.png
+LV_IMG_DECLARE(ui_img_102_png);    // assets/102.png
+LV_IMG_DECLARE(ui_img_103_png);    // assets/103.png
+LV_IMG_DECLARE(ui_img_104_png);    // assets/104.png
+LV_IMG_DECLARE(ui_img_150_png);    // assets/150.png
+LV_IMG_DECLARE(ui_img_151_png);    // assets/151.png
+LV_IMG_DECLARE(ui_img_152_png);    // assets/152.png
+LV_IMG_DECLARE(ui_img_153_png);    // assets/153.png
+LV_IMG_DECLARE(ui_img_300_png);    // assets/300.png
+LV_IMG_DECLARE(ui_img_301_png);    // assets/301.png
+LV_IMG_DECLARE(ui_img_302_png);    // assets/302.png
+LV_IMG_DECLARE(ui_img_303_png);    // assets/303.png
+LV_IMG_DECLARE(ui_img_304_png);    // assets/304.png
+LV_IMG_DECLARE(ui_img_305_png);    // assets/305.png
+LV_IMG_DECLARE(ui_img_306_png);    // assets/306.png
+LV_IMG_DECLARE(ui_img_307_png);    // assets/307.png
+LV_IMG_DECLARE(ui_img_308_png);    // assets/308.png
+LV_IMG_DECLARE(ui_img_309_png);    // assets/309.png
+LV_IMG_DECLARE(ui_img_310_png);    // assets/310.png
+LV_IMG_DECLARE(ui_img_311_png);    // assets/311.png
+LV_IMG_DECLARE(ui_img_312_png);    // assets/312.png
+LV_IMG_DECLARE(ui_img_313_png);    // assets/313.png
+LV_IMG_DECLARE(ui_img_314_png);    // assets/314.png
+LV_IMG_DECLARE(ui_img_315_png);    // assets/315.png
+LV_IMG_DECLARE(ui_img_316_png);    // assets/316.png
+LV_IMG_DECLARE(ui_img_317_png);    // assets/317.png
+LV_IMG_DECLARE(ui_img_318_png);    // assets/318.png
+LV_IMG_DECLARE(ui_img_350_png);    // assets/350.png
+LV_IMG_DECLARE(ui_img_351_png);    // assets/351.png
+LV_IMG_DECLARE(ui_img_399_png);    // assets/399.png
+LV_IMG_DECLARE(ui_img_400_png);    // assets/400.png
+LV_IMG_DECLARE(ui_img_401_png);    // assets/401.png
+LV_IMG_DECLARE(ui_img_402_png);    // assets/402.png
+LV_IMG_DECLARE(ui_img_403_png);    // assets/403.png
+LV_IMG_DECLARE(ui_img_404_png);    // assets/404.png
+LV_IMG_DECLARE(ui_img_405_png);    // assets/405.png
+LV_IMG_DECLARE(ui_img_406_png);    // assets/406.png
+LV_IMG_DECLARE(ui_img_407_png);    // assets/407.png
+LV_IMG_DECLARE(ui_img_408_png);    // assets/408.png
+LV_IMG_DECLARE(ui_img_409_png);    // assets/409.png
+LV_IMG_DECLARE(ui_img_410_png);    // assets/410.png
+LV_IMG_DECLARE(ui_img_456_png);    // assets/456.png
+LV_IMG_DECLARE(ui_img_457_png);    // assets/457.png
+LV_IMG_DECLARE(ui_img_499_png);    // assets/499.png
+LV_IMG_DECLARE(ui_img_500_png);    // assets/500.png
+LV_IMG_DECLARE(ui_img_501_png);    // assets/501.png
+LV_IMG_DECLARE(ui_img_502_png);    // assets/502.png
+LV_IMG_DECLARE(ui_img_503_png);    // assets/503.png
+LV_IMG_DECLARE(ui_img_504_png);    // assets/504.png
+LV_IMG_DECLARE(ui_img_507_png);    // assets/507.png
+LV_IMG_DECLARE(ui_img_508_png);    // assets/508.png
+LV_IMG_DECLARE(ui_img_509_png);    // assets/509.png
+LV_IMG_DECLARE(ui_img_510_png);    // assets/510.png
+LV_IMG_DECLARE(ui_img_511_png);    // assets/511.png
+LV_IMG_DECLARE(ui_img_512_png);    // assets/512.png
+LV_IMG_DECLARE(ui_img_513_png);    // assets/513.png
+LV_IMG_DECLARE(ui_img_514_png);    // assets/514.png
+LV_IMG_DECLARE(ui_img_515_png);    // assets/515.png
+LV_IMG_DECLARE(ui_img_900_png);    // assets/900.png
+LV_IMG_DECLARE(ui_img_901_png);    // assets/901.png
+LV_IMG_DECLARE(ui_img_1222334931);    // assets/fluent_weather-fog-20-filled.png
+LV_IMG_DECLARE(ui_img_123890670);    // assets/icon-park-outline_sleep.png
+LV_IMG_DECLARE(ui_img_1671917170);    // assets/material-symbols_settings-rounded.png
 
 // FONTS
-LV_FONT_DECLARE( ui_font_ASCII20MONO);
-LV_FONT_DECLARE( ui_font_ASCII32MONO);
-LV_FONT_DECLARE( ui_font_ASCII40MONO);
-LV_FONT_DECLARE( ui_font_ASCII56MONO);
-LV_FONT_DECLARE( ui_font_CHN);
-LV_FONT_DECLARE( ui_font_CHN18);
-LV_FONT_DECLARE( ui_font_ASCII16MONO);
+LV_FONT_DECLARE(ui_font_ASCII16MONO);
+LV_FONT_DECLARE(ui_font_ASCII20MONO);
+LV_FONT_DECLARE(ui_font_ASCII32MONO);
+LV_FONT_DECLARE(ui_font_ASCII40MONO);
+LV_FONT_DECLARE(ui_font_ASCII56MONO);
+LV_FONT_DECLARE(ui_font_CHN);
+LV_FONT_DECLARE(ui_font_CHN18);
 
 // UI INIT
 void ui_init(void);

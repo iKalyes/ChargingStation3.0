@@ -18,6 +18,8 @@ void USBA45ON(lv_event_t * e);
 void USBA45OFF(lv_event_t * e);
 void FanSwitchON(lv_event_t * e);
 void FanSwitchOFF(lv_event_t * e);
+void RotationPlus(lv_event_t * e);
+void RotationMinus(lv_event_t * e);
 void USBA1Adjust(lv_event_t * e);
 void USBA2Adjust(lv_event_t * e);
 void TempAdjust(lv_event_t * e);

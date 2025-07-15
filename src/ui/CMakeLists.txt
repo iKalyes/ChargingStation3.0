@@ -16,7 +16,6 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_593743026.c
     images/ui_img_155116563.c
     images/ui_img_2103744591.c
-    images/ui_img_123890670.c
     images/ui_img_763584403.c
     images/ui_img_f7_thermometer_png.c
     images/ui_img_199350223.c
@@ -85,13 +84,14 @@ SET(SOURCES screens/ui_MainScreen.c
     images/ui_img_900_png.c
     images/ui_img_901_png.c
     images/ui_img_1222334931.c
+    images/ui_img_123890670.c
     images/ui_img_1671917170.c
+    fonts/ui_font_ASCII16MONO.c
     fonts/ui_font_ASCII20MONO.c
     fonts/ui_font_ASCII32MONO.c
     fonts/ui_font_ASCII40MONO.c
     fonts/ui_font_ASCII56MONO.c
     fonts/ui_font_CHN.c
-    fonts/ui_font_CHN18.c
-    fonts/ui_font_ASCII16MONO.c)
+    fonts/ui_font_CHN18.c)
 
 add_library(ui ${SOURCES})

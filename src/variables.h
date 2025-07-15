@@ -11,7 +11,7 @@ extern bool tempcontrol_fan;
 extern bool led_enabled; //全局变量控制所有LED灯的开关状态
 //SEETING SCREEN//
 extern uint8_t brightness;
-extern uint16_t sleep_time;
+extern uint8_t rotation;
 extern bool fan_switch;
 extern uint8_t free_space;
 //MAIN SCREEN//

@@ -25,7 +25,4 @@ void time_server_forceupdate();
 void weather_init(String apiKey, String location, String ApiHost);
 void weather_update();
 
-void sleep();
-void reset_sleep_EpochTime();
-
 #endif

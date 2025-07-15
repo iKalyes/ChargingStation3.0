@@ -277,38 +277,3 @@ const lv_img_dsc_t* get_weather_icon(int code)
         default: return &ui_img_999_png; // 默认天气图标
     }
 }
-
-bool time_get_strap = false;
-int sleep_EpochTime = 0;
-void sleep()
-{
-    if(time_get_strap == false)
-    {
-        time_get_strap = true;
-        sleep_EpochTime = timeClient.getEpochTime() / 60;
-    }
-    if(timeClient.isTimeSet() == true)
-    {   
-        if(sleep_time == 0)
-        {
-            return;
-        }
-        else
-        {
-            if((timeClient.getEpochTime() / 60) - sleep_EpochTime >= sleep_time)
-            {
-                backlight_set(0);
-                esp_wifi_stop();
-                gpio_wakeup_enable(SWITCH_ENTER_NUM, GPIO_INTR_LOW_LEVEL);
-                esp_sleep_enable_gpio_wakeup();
-                esp_light_sleep_start();
-                esp_restart();
-            }
-        }
-    }
-}
-
-void reset_sleep_EpochTime()
-{
-    sleep_EpochTime = timeClient.getEpochTime() / 60;
-}

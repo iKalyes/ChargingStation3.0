@@ -114,3 +114,11 @@ def USBA45ON(event_struct):
 def USBA45OFF(event_struct):
     return
 
+
+def RotationMinus(event_struct):
+    return
+
+
+def RotationPlus(event_struct):
+    return
+

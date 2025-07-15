@@ -15,9 +15,5 @@
 void RGB_init();
 void RGB_Power(uint8_t i, float power);
 void RGB_clear();
-void theaterChaseRainbow();
-void rainbow(uint8_t wait);
-void rainbowCycle(uint8_t wait);
-void theaterChase(uint32_t c, uint8_t wait);
 
 #endif

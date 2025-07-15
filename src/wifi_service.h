@@ -23,7 +23,4 @@ void wificonfig();
 void wificonnect();
 void wifireset();
 
-void sleep_unconnect();
-void reset_sleep_millis();
-
 #endif
